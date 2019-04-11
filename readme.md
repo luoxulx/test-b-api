@@ -1,3 +1,17 @@
+##### 说明
+- 定时任务：crontab -e
+- ~~token 一天有效~~
+- ~~JWT secret：php artisan jwt:secret~~
+- php artisan make:migration create_departments_table --create=users
+- php artisan migrate --force
+- php artisan migrate:rollback
+- php artisan db:seed
+
+
+
+---
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
