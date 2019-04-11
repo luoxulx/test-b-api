@@ -41,7 +41,7 @@
         },
 		"files": [
 			"app/helpers.php"
-		]
+		],
         "classmap": [
             "database/seeds",
             "database/factories"
