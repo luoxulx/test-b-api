@@ -6,7 +6,17 @@
  */
 
 require('./bootstrap');
-
+// lx-new
+require('./olr/imagesloaded.pkgd.min.js');
+require('./olr/isInViewport.jquery.js');
+require('./olr/jquery.magnific-popup.min.js');
+require('./olr/scrolla.jquery.min.js');
+require('./olr/jquery.validate.min.js');
+require('./olr/jquery-validate.bootstrap-tooltip.min.js');
+require('./olr/odometer.min.js');
+require('./olr/owl.carousel.min.js');
+require('./olr/custom.js');
+// lx-end
 window.Vue = require('vue');
 
 /**
@@ -28,6 +38,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
+const front = new Vue({
+    el: '#front'
 });

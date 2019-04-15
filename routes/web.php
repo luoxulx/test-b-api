@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::group(['namespace' => 'Front'], function () {
+    Route::get('/', 'HomeController@index');
+
+    Route::resource('blog', 'BlogController', [
+        'names' => ['index' => 'blog.index', 'show' => 'blog.show',],
+        'except' => ['create', 'edit', 'store', 'update', 'destroy']
+    ]);
 });
