@@ -9,7 +9,7 @@
 
     <title>Frankenstein - Personal Portfolio Template</title></head>
 <body data-spy="scroll" data-target=".navbar" class="has-loading-screen">
-    <div id="index">
+    <div id="front">
         @yield('main')
     </div>
 <script src="{{ mix('/js/default.js') }}" type="text/javascript"></script>

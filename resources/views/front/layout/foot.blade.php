@@ -1,11 +1,11 @@
 <footer id="ts-footer" class="mt-5">
-    <section id="contact" class="ts-block ts-separate-bg-element" data-bg-image="/olr/bg-man-wall.jpg"
+    <section id="contact" class="ts-block ts-separate-bg-element" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/bg-man-wall.jpg"
              data-bg-image-opacity=".1">
         <div class="container">
             <div class="ts-title text-center"><h2 class="ts-bubble-border">Get In Touch</h2></div>
             <div class="row ts-xs-text-center ">
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp">
-                    <img src="/olr/icon-pin.png" class="mb-4" alt="">
+                    <img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-pin.png" class="mb-4" alt="">
                     <h5>Address</h5>
                     <div class="ts-opacity__50">
                         <figure class="mb-0">999 Carter Street</figure>
@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".1s">
-                    <img src="/olr/icon-phone-02.png" class="mb-4" alt="">
+                    <img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-phone-02.png" class="mb-4" alt="">
                     <h5>Phone</h5>
                     <div class="ts-opacity__50">
                         <figure class="mb-0">+1 618-689-9409</figure>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".2s">
-                    <img src="/olr/icon-envelope.png" class="mb-4" alt="">
+                    <img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-envelope.png" class="mb-4" alt="">
                     <h5>Email</h5>
                     <div class="ts-opacity__50">
                         <figure class="mb-0">hello@example.com</figure>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".3s">
-                    <img src="/olr/icon-talk-bubble.png" class="mb-4" alt=""><h5>Facebook Chat</h5>
+                    <img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-talk-bubble.png" class="mb-4" alt=""><h5>Facebook Chat</h5>
                     <div class="ts-opacity__50">
                         <figure>me.freelancer3</figure>
                     </div>

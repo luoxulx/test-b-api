@@ -1,4 +1,4 @@
-@extends('web.layout.app')
+@extends('front.layout.app')
 @section('main')
     ...
 @endsection

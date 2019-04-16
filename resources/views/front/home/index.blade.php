@@ -28,7 +28,7 @@
             <a href="#my-services" class="ts-btn-effect position-absolute ts-bottom__0 ts-left__0 ts-scroll ml-3 mb-3"><span class="ts-visible ts-circle__sm rounded-0 ts-bg-primary"><i class="fa fa-arrow-down text-white"></i></span><span class="ts-hidden ts-circle__sm rounded-0"><i class="fa fa-arrow-down text-white"></i></span></a>
         </div>
         <div class="ts-background">
-            <div class="ts-background-image" data-bg-image="/olr/bg-hero.jpg"></div>
+            <div class="ts-background-image" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/bg-hero.jpg"></div>
         </div>
     </div>
 
@@ -42,7 +42,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/olr/icon-brushes.png" alt=""></figure>
+                                    <figure class="icon"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-brushes.png" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>White Hat Hacker</h4>
                                     <p class="mb-0">Hacker Arsenal What is done is not malicious destruction, they are a group of technical personnel across the network, keen on scientific and technological exploration, Computer science research.</p>
@@ -58,7 +58,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".1s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/olr/icon-camera.png" alt=""></figure>
+                                    <figure class="icon"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-camera.png" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>C++</h4>
                                     <p class="mb-0">https://cn.bing.com/https://cn.bing.com/https://cn.bing.com/https://cn.bing.com/</p>
@@ -74,7 +74,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".2s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/olr/icon-video.png" alt=""></figure>
+                                    <figure class="icon"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-video.png" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Video Editing</h4>
                                     <p class="mb-0">Aenean pretium nulla libero, vitae iaculis libero efficitur a. Fusce ut augue finibus quam</p></div><!--end ts-item-body-->
@@ -89,7 +89,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".3s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/olr/icon-pencil.png" alt=""></figure>
+                                    <figure class="icon"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-pencil.png" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Copy Writing</h4>
                                     <p class="mb-0">Fusce lorem ex, fringilla eget consequat ut, molestie sit amet nibh. Nullam vitae tincidunt</p></div><!--end ts-item-body-->
@@ -104,7 +104,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".4s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/olr/icon-lcd.png" alt=""></figure><!--end icon-->
+                                    <figure class="icon"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-lcd.png" alt=""></figure><!--end icon-->
                                 </div><!--end ts-item-header-->
                                 <div class="ts-item-body"><h4>Coding</h4>
                                     <p class="mb-0">Aenean pretium nulla libero, vitae iaculis libero efficitur a. Fusce ut augue finibus quam</p>
@@ -120,7 +120,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".5s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/olr/icon-phone.png" alt=""></figure><!--end icon-->
+                                    <figure class="icon"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/icon-phone.png" alt=""></figure><!--end icon-->
                                 </div><!--end ts-item-header-->
                                 <div class="ts-item-body"><h4>App Developing</h4>
                                     <p class="mb-0">Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque</p>
@@ -140,7 +140,7 @@
             <div class="container">
                 <div class="ts-title text-center"><h2>About Me</h2></div><!--end ts-title-->
                 <div class="row ts-align__vertical">
-                    <div class="col-md-6"><img src="/olr/img-man-looking.jpg" alt="" class="mw-100 mb-5"></div>
+                    <div class="col-md-6"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-man-looking.jpg" alt="" class="mw-100 mb-5"></div>
                     <div class="col-md-6">
                         <h4 class="ts-bubble-border">Hi There</h4>
                         <p>In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo. Nulla in feugiat elit.</p>
@@ -168,7 +168,7 @@
         <section class="ts-block">
             <div class="container">
                 <div class="text-center px-5 pt-5 position-relative"><h3 class="my-3"> Let’s Work Together On Your Next Project!</h3><a href="#contact" class="btn btn-primary mr-2 ts-push-down__50 ts-has-talk-arrow">Hire Me Now!</a>
-                    <div class="ts-background ts-opacity__20" data-bg-image="/olr/bg-keyboard.jpg"></div>
+                    <div class="ts-background ts-opacity__20" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/bg-keyboard.jpg"></div>
                 </div>
             </div>
         </section>
@@ -211,26 +211,26 @@
             <div class="container">
                 <div class="ts-title"><h2>Portfolio</h2></div><!--end ts-title-->
                 <div class="card-columns ts-gallery ts-column-count-4">
-                    <a href="/olr/img-work-01.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-01.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
                         <div class="ts-gallery__item-description">
                             <h6 class="ts-opacity__50">Branding</h6>
                             <h4>Pehaz</h4>
                         </div>
-                        <img src="/olr/img-work-01.png" class="card-img" alt=""><!--end ts-gallery__image-->
+                        <img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-01.png" class="card-img" alt=""><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-02.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-02.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
                         <div class="ts-gallery__image">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Webdesign</h6>
                                 <h4>Carilo</h4>
                             </div>
-                            <img src="/olr/img-work-02.png" class="card-img" alt=""><!--end ts-gallery__item-description-->
+                            <img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-02.png" class="card-img" alt=""><!--end ts-gallery__item-description-->
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-03.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-03.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-03.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-03.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Typography</h6>
                                 <h4>Kali</h4>
@@ -238,8 +238,8 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-04.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-04.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-04.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-04.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Identity</h6>
                                 <h4>Purity</h4>
@@ -247,8 +247,8 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-05.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-05.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-05.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-05.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Coding</h6>
                                 <h4>SawMill</h4>
@@ -256,8 +256,8 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-06.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-06.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-06.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-06.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Webdesign</h6>
                                 <h4>Browar</h4>
@@ -265,8 +265,8 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-07.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-07.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-07.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-07.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Experiment</h6>
                                 <h4>Wood Tables</h4>
@@ -274,9 +274,9 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-08.png" class="card ts-gallery__item popup-image"
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-08.png" class="card ts-gallery__item popup-image"
                        data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-08.png" class="card-img" alt="">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-08.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Product Design</h6>
                                 <h4>Air Purifier</h4>
@@ -284,8 +284,8 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-10.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-10.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-10.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-10.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">App Developing</h6>
                                 <h4>Boombox</h4>
@@ -293,8 +293,8 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-11.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-11.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-11.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-11.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">3D Art</h6>
                                 <h4>The Deer</h4>
@@ -302,8 +302,8 @@
                         </div><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
 
-                    <a href="/olr/img-work-09.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/olr/img-work-09.png" class="card-img" alt="">
+                    <a href="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-09.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <div class="ts-gallery__image"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-work-09.png" class="card-img" alt="">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Rebranding</h6>
                                 <h4>Dafont</h4>
@@ -315,7 +315,7 @@
             </div><!--end container-->
         </section><!--end portfolio-->
 
-        <section class="ts-block" data-bg-image="/olr/bg-man-sitting.jpg">
+        <section class="ts-block" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/bg-man-sitting.jpg">
             <div class="container ts-promo-numbers">
                 <div class="row">
                     <div class="col-sm-6 col-md-3">
@@ -358,14 +358,14 @@
                             <div class="slide mb-5">
                                 <figure class="d-inline-block p-3 ts-bg-primary text-white ts-has-talk-arrow"><i class="fa fa-quote-right"></i></figure>
                                 <p class="ts-h5"> In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis</p>
-                                <div class="ts-circle__lg mb-3" data-bg-image="/olr/person.jpg"></div>
+                                <div class="ts-circle__lg mb-3" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/person.jpg"></div>
                                 <h5>Jane Doe</h5><h6 class="ts-opacity__40">Bristol Creative</h6>
                             </div><!--end slide-->
 
                             <div class="slide mb-5">
                                 <figure class="d-inline-block p-3 ts-bg-primary text-white ts-has-talk-arrow"><i class="fa fa-quote-right"></i></figure>
                                 <p class="ts-h5"> Nam egestas porta posuere. Nunc velit lorem, vestibulum vitae massa nec, lacinia dictum ligula. Quisque scelerisque nec dolor id convallis. Vestibulum porta ipsum pretium turpis rhoncus, non fringilla ipsum mattis.</p>
-                                <div class="ts-circle__lg mb-3" data-bg-image="/olr/person-02.jpg"></div>
+                                <div class="ts-circle__lg mb-3" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/person-02.jpg"></div>
                                 <h5>John Brown</h5><h6 class="ts-opacity__40">ABC Architects</h6>
                             </div><!--end slide-->
 
@@ -379,11 +379,11 @@
         <section id="partners" class="ts-block py-4"><!--container-->
             <div class="container"><!--block of logos-->
                 <div class="d-block d-md-flex justify-content-between align-items-center text-center ts-partners py-3">
-                    <a href="#"><img src="/olr/logo-01-w.png" alt=""></a>
-                    <a href="#"><img src="/olr/logo-02-w.png" alt=""></a>
-                    <a href="#"><img src="/olr/logo-03-w.png" alt=""></a>
-                    <a href="#"><img src="/olr/logo-04-w.png" alt=""></a>
-                    <a href="#"><img src="/olr/logo-05-w.png" alt=""></a>
+                    <a href="#"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/logo-01-w.png" alt=""></a>
+                    <a href="#"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/logo-02-w.png" alt=""></a>
+                    <a href="#"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/logo-03-w.png" alt=""></a>
+                    <a href="#"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/logo-04-w.png" alt=""></a>
+                    <a href="#"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/logo-05-w.png" alt=""></a>
                 </div><!--end logos-->
             </div><!--end container-->
         </section>
