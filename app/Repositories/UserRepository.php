@@ -5,8 +5,15 @@
  * Date: 2019/4/16
  * Time: 下午8:35
  */
+namespace App\Repositories;
 
-class UserRepository
+use App\Models\User;
+
+class UserRepository extends BaseRepository
 {
+    public function __construct(User $user)
+    {
+        $this->model = $user;
+    }
 
 }
