@@ -9,7 +9,8 @@ class ValidateRule
     protected function rules($ruleName, $id = '')
     {
         $rules = [
-            'user.login' => [
+            'auth.login' => [
+                'login_name' => 'required|string',
                 'password' => 'required|string'
             ],
         ];

@@ -156,7 +156,7 @@ class Response
      */
     public function withError($message = 'Something Error'): \Illuminate\Http\JsonResponse
     {
-        return $this->setHttpCode(500)->json(['message' => $message]);
+        return $this->json(['message' => $message]);
     }
 
     /**

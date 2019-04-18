@@ -76,7 +76,7 @@
 
     <div class="text-dark bg-white">
         <div class="container py-3 position-relative">
-            <small>© {{ date('Y') }} &nbsp;14k, &nbsp;All Rights <a href="https://www.lnmpa.top" target="_blank">Reserved</a></small>
+            <small>© {{ date('Y') }} &nbsp;<a href="https://www.lnmpa.top" target="_blank">14k</a>,&nbsp;All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备17055140号-1</small>
             <a href="#page-top" class="ts-circle__xs rounded-0 bg-dark position-absolute ts-right__0 ts-top__0 ts-push-up__50 ts-scroll"><i class="fa fa-arrow-up text-white"></i></a>
         </div>
     </div>

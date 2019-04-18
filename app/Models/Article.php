@@ -9,6 +9,8 @@
 namespace App\Models;
 
 
+use Illuminate\Support\Str;
+
 class Article extends BaseModel
 {
 
@@ -29,6 +31,24 @@ class Article extends BaseModel
         'more' => 'json'
     ];
 
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->setUniqueSlug($value, Str::random(12));
+    }
+
+    private function setUniqueSlug($value, $extra)
+    {
+        $slug = Str::slug($value);
+
+        if (static::whereSlug($slug)->exists()) {
+            $this->setUniqueSlug($slug, (int) $extra + 1);
+            return;
+        }
+
+        $this->attributes['slug'] = $slug;
+    }
 
     public function user()
     {

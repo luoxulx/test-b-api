@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ asset('/fontawesome/css/all.css') }}">
+    <link href="{{ asset('favicon.ico') }}" rel='shortcut icon' type='image/x-icon'>
     <link rel="stylesheet" href="{{ mix('/css/default.css') }}">
+    <link href="https://cdn.bootcss.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
     <title>Frankenstein - Personal Portfolio Template</title></head>
 <body data-spy="scroll" data-target=".navbar" class="has-loading-screen">

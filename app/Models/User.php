@@ -14,6 +14,8 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable, SoftDeletes;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -36,7 +38,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'deleted_at'
+        'password', 'remember_token', 'deleted_at', 'is_admin'
     ];
 
     protected function setPasswordAttribute($value)
