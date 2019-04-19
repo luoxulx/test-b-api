@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 128)->unique()->comment('账户email,可用作登录');
             $table->string('password');
             $table->string('avatar',200)->nullable()->comment('用户头像链接');
+            $table->string('introduction',200)->nullable();
             $table->tinyInteger('is_admin')->unsigned()->default(0);
             $table->rememberToken();
 

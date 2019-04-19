@@ -36,7 +36,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model;
     }
 
-    public function updateColumn(int $id, $input) :bool
+    public function updateColumn(int $id, $input)
     {
         $this->model = $this->getById($id);
 

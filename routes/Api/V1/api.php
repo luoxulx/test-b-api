@@ -14,6 +14,9 @@
 Route::group(['middleware' => 'validate.input'], function () {
     /** ---------- open api start---------- */
     Route::post('/auth/login', 'AuthController@login')->name('api.auth.login');
+
+    Route::post('/file/upload', 'OpenController@upload')->name('api.file.upload');
+
     /** ---------- open api end---------- */
 
     Route::group(['middleware' => 'auth:api'], function () {
@@ -78,7 +81,6 @@ Route::group(['middleware' => 'validate.input'], function () {
             ],
             'except' => ['create', 'edit']
         ]);
-        Route::get('/user/me', 'UserController@me');
 
         Route::post('/auth/logout', 'AuthController@logout')->name('api.auth.logout');
 

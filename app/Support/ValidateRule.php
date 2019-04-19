@@ -13,6 +13,10 @@ class ValidateRule
                 'login_name' => 'required|string',
                 'password' => 'required|string'
             ],
+            'open.upload' => [
+                'file' => 'required|file',
+                'dir' => 'required|string'
+            ]
         ];
 
         if (isset($rules[$ruleName])) {

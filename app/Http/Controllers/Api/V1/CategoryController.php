@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Api\V1;
 
 
 use App\Repositories\CategoryRepository;
+use App\Transformers\CategoryTransformer;
 
 class CategoryController extends BaseController
 {
@@ -20,5 +21,38 @@ class CategoryController extends BaseController
     {
         parent::__construct();
         $this->category = $categoryRepository;
+    }
+
+    public function index()
+    {
+        return $this->response->collection($this->category->paginate(), new CategoryTransformer());
+    }
+
+    public function show(int $id)
+    {
+        return $this->response->item($this->category->getById($id), new CategoryTransformer());
+    }
+
+    public function store()
+    {
+        $param = request()->all();
+
+        return $this->response->withCreated($this->category->create($param), new CategoryTransformer());
+    }
+
+    public function update(int $id)
+    {
+        $param = request()->all();
+
+        $this->category->updateColumn($id, $param);
+
+        return $this->response->json();
+    }
+
+    public function destroy(int $id)
+    {
+        $this->category->destroy($id);
+
+        return $this->response->json();
     }
 }

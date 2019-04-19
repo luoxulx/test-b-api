@@ -23,8 +23,37 @@ class UserController extends BaseController
         $this->user = $userRepository;
     }
 
-    public function me()
+    public function index()
     {
-        return $this->response->item($this->user->me(), new UserTransformer());
+        return $this->response->collection($this->user->paginate(), new UserTransformer());
     }
+
+    public function show(int $id)
+    {
+        return $this->response->item($this->user->getById($id), new UserTransformer());
+    }
+
+    public function store()
+    {
+        $param = request()->only(['nickname','name','email','password','avatar','introduction','is_admin']);
+
+        return $this->response->withCreated($this->user->create($param), new UserTransformer());
+    }
+
+    public function update(int $id)
+    {
+        $param = request()->only(['nickname','name','email','password','avatar','introduction','is_admin']);
+
+        $this->user->updateColumn($id, $param);
+
+        return $this->response->json();
+    }
+
+    public function destroy(int $id)
+    {
+        $this->user->destroy($id);
+
+        return $this->response->json();
+    }
+
 }
