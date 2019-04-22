@@ -56,9 +56,13 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->save();
     }
 
-    public function destroy(int $id)
+    /**
+     * @param integer|array $ids
+     * @return int
+     */
+    public function destroy($ids)
     {
-        return $this->getById($id)->delete();
+        return $this->model->destroy($ids);
     }
 
     public function setDecrement(string $column, int $val = 1)

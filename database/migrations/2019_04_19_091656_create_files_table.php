@@ -17,7 +17,7 @@ class CreateFilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('filename', 225)->nullable()->comment('filename');
             $table->string('original_name', 225)->nullable()->comment('original_name');
-            $table->string('mime', 16)->nullable()->comment('mime');
+            $table->string('mime', 128)->nullable()->comment('mime');
             $table->string('size', 16)->nullable()->comment('size');
             $table->string('real_path', 225)->nullable()->comment('real_path');
             $table->string('relative_url', 225)->nullable()->comment('relative_url');

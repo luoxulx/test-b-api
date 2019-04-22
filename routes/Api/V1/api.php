@@ -13,14 +13,15 @@
 
 Route::group(['middleware' => 'validate.input'], function () {
     /** ---------- open api start---------- */
-    Route::post('/auth/login', 'AuthController@login')->name('api.auth.login');
+    Route::post('auth/login', 'AuthController@login')->name('api.auth.login');
 
-    Route::post('/file/upload', 'OpenController@upload')->name('api.file.upload');
+    Route::post('file/upload', 'OpenController@upload')->name('api.file.upload');
+    Route::post('file/chunk_upload', 'OpenController@chunk_upload')->name('api.file.chunk_upload');
 
     /** ---------- open api end---------- */
 
     Route::group(['middleware' => 'auth:api'], function () {
-
+        Route::pattern('id', '[0-9]+');
         /** ---------- article start---------- */
         Route::resource('article', 'ArticleController', [
             'name' => [
@@ -30,8 +31,10 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'update' => 'api.article.update',
                 'destroy' => 'api.article.destroy',
             ],
-            'except' => ['create', 'edit']
+            'except' => ['create', 'edit'],
+            'parameters' => ['article' => 'id']
         ]);
+        Route::delete('article/batch', 'ArticleController@batch')->name('api.article.batch');
         /** ---------- article end---------- */
 
         // category
@@ -43,7 +46,8 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'update' => 'api.category.update',
                 'destroy' => 'api.category.destroy',
             ],
-            'except' => ['create', 'edit']
+            'except' => ['create', 'edit'],
+            'parameters' => ['article' => 'id']
         ]);
 
         // tag
@@ -55,7 +59,8 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'update' => 'api.tag.update',
                 'destroy' => 'api.tag.destroy',
             ],
-            'except' => ['create', 'edit']
+            'except' => ['create', 'edit'],
+            'parameters' => ['article' => 'id']
         ]);
 
         // comment
@@ -67,7 +72,8 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'update' => 'api.comment.update',
                 'destroy' => 'api.comment.destroy',
             ],
-            'except' => ['create', 'edit']
+            'except' => ['create', 'edit'],
+            'parameters' => ['article' => 'id']
         ]);
 
         // user
@@ -79,10 +85,11 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'update' => 'api.user.update',
                 'destroy' => 'api.user.destroy',
             ],
-            'except' => ['create', 'edit']
+            'except' => ['create', 'edit'],
+            'parameters' => ['article' => 'id']
         ]);
-
-        Route::post('/auth/logout', 'AuthController@logout')->name('api.auth.logout');
+        Route::get('user/info', 'UserController@info')->name('api.user.info');
+        Route::post('auth/logout', 'AuthController@logout')->name('api.auth.logout');
 
     });
 });

@@ -33,6 +33,11 @@ class UserController extends BaseController
         return $this->response->item($this->user->getById($id), new UserTransformer());
     }
 
+    public function info()
+    {
+        return $this->response->item($this->user->me(), new UserTransformer());
+    }
+
     public function store()
     {
         $param = request()->only(['nickname','name','email','password','avatar','introduction','is_admin']);

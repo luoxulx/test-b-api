@@ -22,7 +22,11 @@ class ArticleTransformer extends TransformerAbstract
 
     public function transform(Article $article)
     {
-        return $article->attributesToArray();
+        $result = $article->attributesToArray();
+        $result['category_name'] = $article->category()->value('name');
+        $result['user_name'] = $article->user()->value('name');
+
+        return $result;
     }
 
     /**

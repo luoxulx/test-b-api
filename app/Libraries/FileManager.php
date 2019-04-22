@@ -63,6 +63,8 @@ class FileManager
         $chunk = intval(request()->post('chunk', 0));
         $count = intval(request()->post('chunks', 0));
         $originalName = $file->getClientOriginalName();
+        $realPath = '';
+        $tempRealPath = $file->getRealPath();
 
         if ($count === $chunk) {
             // 直接保存
@@ -70,13 +72,13 @@ class FileManager
         }else {
             // chunk save
             $tempFilename = md5($originalName).'-'.($chunk+1).'.tmp';
-            $tempPathname = $this->cleanFolder('temp_chunk').$tempFilename;
-            $this->disk->put($tempFilename, file_get_contents($tempPathname));
+            $this->disk->put($tempFilename, file_get_contents($tempRealPath));
 
+            // 合并
             if ($chunk + 1 === $count) {
-                $filename = md5(time().Str::random()).'.'.$file->getClientOriginalName();
+                $realPath = md5(time().Str::random()).'.'.$file->getClientOriginalExtension();
 
-                $fp = fopen($filename,'ab');
+                $fp = fopen($realPath,'ab');
 
                 for($i=0; $i<$count; $i++) {
                     $tmp_files = $this->cleanFolder('temp_chunk').md5($originalName).'-'.($i+1).'.tmp';
@@ -88,6 +90,16 @@ class FileManager
                 fclose($fp);
             }
         }
+
+        return [
+            'filename' => str_replace($dir.'/', '', $realPath),
+            'original_name' => $originalName,
+            'mime' => $file->getMimeType(),
+            'size' => $this->formatSize($file->getSize()),
+            'real_path' => $realPath,
+            'relative_url' => 'storage/' . $realPath,
+            'url' => asset('storage/' . $realPath),
+        ];
     }
 
     /**
@@ -104,13 +116,11 @@ class FileManager
     /**
      * Delete the file.
      *
-     * @param $path
+     * @param $path&$name
      * @return mixed
      */
     public function deleteFile($path)
     {
-        $this->cleanFolder($path);
-
         return $this->disk->delete($path);
     }
 

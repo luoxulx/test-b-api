@@ -58,4 +58,12 @@ class ArticleController extends BaseController
 
         return $this->response->json();
     }
+
+    public function batch()
+    {
+        $ids = request()->only('ids');
+        $this->article->destroy($ids);
+
+        return $this->response->json();
+    }
 }

@@ -31,11 +31,13 @@ class OpenController extends BaseController
         return $this->response->withCreated($fileRepository->create($data), new FileTransformer());
     }
 
-    public function chunk()
+    public function chunk_upload(FileManager $fileManager, FileRepository $fileRepository)
     {
-        $chunk = request()->post('chunk', 0);
-        $count = request()->post('chunks', 0);
         $file = request()->file('file');
-        $dir = request()->post('dir', 'temp');
+        $dir = request()->post('dir', 'temps');
+
+        $data = $fileManager->chunkStore($file, $dir);
+
+        var_dump($data);die;
     }
 }
