@@ -47,7 +47,7 @@ class ArticleController extends BaseController
     {
         $param = request()->all();
 
-        $this->article->updateColumn($id, $param);
+        $this->article->update($id, $param);
 
         return $this->response->json();
     }
@@ -61,8 +61,8 @@ class ArticleController extends BaseController
 
     public function batch()
     {
-        $ids = request()->only('ids');
-        $this->article->destroy($ids);
+        $ids = request()->json('ids');
+        $this->article->batchDestroy($ids);
 
         return $this->response->json();
     }

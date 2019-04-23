@@ -21,8 +21,14 @@ interface BaseRepositoryInterface
     public function update(int $id, $input);
 
     /**
-     * @param integer|array $ids
+     * @param integer $id
      * @return mixed
      */
-    public function destroy($ids);
+    public function destroy(int $id);
+
+    /**
+     * @param array $ids
+     * @return mixed
+     */
+    public function batchDestroy(array $ids);
 }

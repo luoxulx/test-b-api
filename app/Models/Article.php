@@ -27,12 +27,17 @@ class Article extends BaseModel
         'content',
     ];
 
-    protected $casts = [
-        'more' => 'json'
-    ];
+//    protected function setIsDraftAttribute($value)
+//    {
+//        $this->attributes['is_draft'] = $value ? 1 : 0;
+//    }
+//
+    protected function getIsDraftAttribute($value)
+    {
+        return $value ? true : false;
+    }
 
-
-    public function setTitleAttribute($value)
+    protected function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;
         $this->setUniqueSlug($value, Str::random(12));
@@ -58,5 +63,10 @@ class Article extends BaseModel
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class,'taggable');
     }
 }

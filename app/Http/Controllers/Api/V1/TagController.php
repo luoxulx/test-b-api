@@ -28,6 +28,11 @@ class TagController extends BaseController
         return $this->response->collection($this->tag->paginate(), new TagTransformer());
     }
 
+    public function all_tags()
+    {
+        return $this->response->collection($this->tag->all(['id','name','color']), new TagTransformer());
+    }
+
     public function show(int $id)
     {
         return $this->response->item($this->tag->getById($id), new TagTransformer());
@@ -52,6 +57,14 @@ class TagController extends BaseController
     public function destroy(int $id)
     {
         $this->tag->destroy($id);
+
+        return $this->response->json();
+    }
+
+    public function batch()
+    {
+        $ids = request()->json('ids');
+        $this->tag->batchDestroy($ids);
 
         return $this->response->json();
     }

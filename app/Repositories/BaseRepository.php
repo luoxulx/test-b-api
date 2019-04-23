@@ -57,10 +57,15 @@ class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
-     * @param integer|array $ids
+     * @param integer $id
      * @return int
      */
-    public function destroy($ids)
+    public function destroy(int $id)
+    {
+        return $this->getById($id)->delete();
+    }
+
+    public function batchDestroy(array $ids)
     {
         return $this->model->destroy($ids);
     }

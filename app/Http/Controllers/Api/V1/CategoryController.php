@@ -28,6 +28,11 @@ class CategoryController extends BaseController
         return $this->response->collection($this->category->paginate(), new CategoryTransformer());
     }
 
+    public function all_categories()
+    {
+        return $this->response->collection($this->category->all(['id','name']), new CategoryTransformer());
+    }
+
     public function show(int $id)
     {
         return $this->response->item($this->category->getById($id), new CategoryTransformer());
@@ -52,6 +57,14 @@ class CategoryController extends BaseController
     public function destroy(int $id)
     {
         $this->category->destroy($id);
+
+        return $this->response->json();
+    }
+
+    public function batch()
+    {
+        $ids = request()->json('ids');
+        $this->category->batchDestroy($ids);
 
         return $this->response->json();
     }

@@ -18,4 +18,9 @@ class Tag extends BaseModel
         'style',
         'description',
     ];
+
+    public function articles()
+    {
+        return $this->morphedByMany(Article::class, 'taggable');
+    }
 }

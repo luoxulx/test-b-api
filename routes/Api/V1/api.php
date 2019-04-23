@@ -47,8 +47,10 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'destroy' => 'api.category.destroy',
             ],
             'except' => ['create', 'edit'],
-            'parameters' => ['article' => 'id']
+            'parameters' => ['category' => 'id']
         ]);
+        Route::get('category/all', 'CategoryController@all_categories')->name('api.category.all_categories');
+        Route::delete('category/batch', 'CategoryController@batch')->name('api.category.batch');
 
         // tag
         Route::resource('tag', 'TagController', [
@@ -60,8 +62,10 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'destroy' => 'api.tag.destroy',
             ],
             'except' => ['create', 'edit'],
-            'parameters' => ['article' => 'id']
+            'parameters' => ['tag' => 'id']
         ]);
+        Route::get('tag/all', 'TagController@all_tags')->name('api.tag.all_tags');
+        Route::delete('tag/batch', 'TagController@batch')->name('api.tag.batch');
 
         // comment
         Route::resource('comment', 'CommentController', [
@@ -73,7 +77,7 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'destroy' => 'api.comment.destroy',
             ],
             'except' => ['create', 'edit'],
-            'parameters' => ['article' => 'id']
+            'parameters' => ['comment' => 'id']
         ]);
 
         // user
@@ -86,7 +90,7 @@ Route::group(['middleware' => 'validate.input'], function () {
                 'destroy' => 'api.user.destroy',
             ],
             'except' => ['create', 'edit'],
-            'parameters' => ['article' => 'id']
+            'parameters' => ['user' => 'id']
         ]);
         Route::get('user/info', 'UserController@info')->name('api.user.info');
         Route::post('auth/logout', 'AuthController@logout')->name('api.auth.logout');

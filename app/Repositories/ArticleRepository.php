@@ -30,4 +30,41 @@ class ArticleRepository extends BaseRepository
 
         return $article;
     }
+
+    public function create($input)
+    {
+        $this->model->fill($input);
+
+        $this->model->save();
+
+//        if (! isset($input['tags'])) {
+//            $input['tags'] = [];
+//        }
+        $this->model->tags()->sync($input['tags']);
+
+        return $this->model;
+    }
+
+    public function update(int $id, $input)
+    {
+        $this->model = $this->getById($id);
+
+        $this->model->fill($input);
+        if (isset($input['tags'])) {
+            $this->model->tags()->sync($input['tags']);
+        }
+
+        return $this->model->save();
+    }
+
+    /**
+     * Sync the tags for the article.
+     *
+     * @param array $tags
+     */
+    public function syncTag(array $tags)
+    {
+        $this->model->tags()->sync($tags);
+    }
+
 }
