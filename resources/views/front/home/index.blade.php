@@ -15,12 +15,13 @@
                         <a href="#" class="mr-3"><i class="fab fa-slack"></i></a>
                         <a href="#" class="mr-3"><i class="fab fa-instagram"></i></a>
                     </figure>
-                    <h1>I'm Frankenstein&14k</h1>
+                    <h1>I'm 14k.Frankenstein</h1>
                     <h1 class="ts-bubble-border">
                         <span class="ts-title-rotate">
-                            <span class="active">Hacker of white hat</span>
+                            <span class="active">White Hat</span>
+                            <span>The Go Programming Language</span>
                             <span>C++&Python Developer</span>
-                            <span>Web Designer</span>
+                            <span>Laravel|Web Designer</span>
                         </span>
                     </h1>
                 </div>

@@ -7,6 +7,7 @@
     <link href="{{ asset('favicon.ico') }}" rel='shortcut icon' type='image/x-icon'>
     <link rel="stylesheet" href="{{ mix('/css/default.css') }}">
     <link href="https://cdn.bootcss.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
+    {{--<link href="http://cdn2.lnmpa.top/fontawesome/css/all.min.css" rel="stylesheet">--}}
 
     <title>Frankenstein - Personal Portfolio Template</title></head>
 <body data-spy="scroll" data-target=".navbar" class="has-loading-screen">

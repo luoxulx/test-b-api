@@ -17,6 +17,7 @@ Route::group(['middleware' => 'validate.input'], function () {
 
     Route::post('file/upload', 'OpenController@upload')->name('api.file.upload');
     Route::post('file/chunk_upload', 'OpenController@chunk_upload')->name('api.file.chunk_upload');
+    Route::get('bing/today_pic', 'OpenController@today_pic')->name('api.bing.today_pic');
 
     /** ---------- open api end---------- */
 

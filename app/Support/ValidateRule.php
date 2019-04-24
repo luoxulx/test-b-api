@@ -13,6 +13,11 @@ class ValidateRule
                 'login_name' => 'required|string',
                 'password' => 'required|string'
             ],
+            'open.today_pic' => [
+                'format' => 'string',
+                'n' => 'integer|min:1|max:8',
+                'idx' => 'integer|min:-1|max:16'
+            ],
             'open.upload' => [
                 'file' => 'required|file',
                 'dir' => 'required|string'

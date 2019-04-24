@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('curlRequest')) {
+if (!function_exists('curl')) {
     /**
      * @param $url
      * @param array $params
@@ -9,7 +9,7 @@ if (!function_exists('curlRequest')) {
      * @return mixed
      * @throws Exception
      */
-    function curlRequest($url, $params = [], $method = 'GET', $header = ['Content-Type: application/json; charset=utf-8'])
+    function curl($url, $params = [], $method = 'GET', $header = ['Content-Type: application/json; charset=utf-8'])
     {
         $opts = array(
             CURLOPT_TIMEOUT        => 30,
@@ -43,7 +43,7 @@ if (!function_exists('curlRequest')) {
                 $opts[CURLOPT_POSTFIELDS] = http_build_query($params);
                 break;
             default:
-                throw new Exception('Unsupported mode of request!');
+                throw new \Exception('Unsupported mode of request!', 400);
         }
 
         /* 初始化并执行curl请求 */
@@ -53,9 +53,10 @@ if (!function_exists('curlRequest')) {
         $error = curl_error($ch);
         curl_close($ch);
 
-        if($error) {
-            return ['code'=>9999,'error'=>$error,'message'=>'failed'];
+        if ($error) {
+            throw new \Exception($error, 400);
         }
-        return ['code'=>0, 'message'=>'successful','result'=>json_decode($data, true), 'request'=>$params];
+
+        return $data;
     }
 }
