@@ -38,6 +38,8 @@ class FileManager
     public function store(UploadedFile $file, $dir = 'temp', $name = '')
     {
         $mime = $file->getMimeType();
+        $dirDate = '/' . date('Y') . '/' . date('m');
+        $dir .= $dirDate;
 
         if ($name) {
             $realPath = $this->disk->putFileAs($dir, $file, $name);
@@ -58,47 +60,55 @@ class FileManager
         ];
     }
 
-    public function chunkStore(UploadedFile $file, $dir = 'temp')
+    public function patchStore(UploadedFile $file, $dir = 'temp')
     {
+        $dirDate = '/' . date('Y') . '/' . date('m');
+        $dir .= $dirDate;
+
         $chunk = intval(request()->post('chunk', 0));
-        $count = intval(request()->post('chunks', 0));
+        $chunks = intval(request()->post('chunks', 0));
+
         $originalName = $file->getClientOriginalName();
-        $realPath = '';
-        $tempRealPath = $file->getRealPath();
+        $ext = $file->getClientOriginalExtension();
 
-        if ($count === $chunk) {
-            // 直接保存
-            $realPath = $this->disk->putFile($dir, $file);
-        }else {
-            // chunk save
-            $tempFilename = md5($originalName).'-'.($chunk+1).'.tmp';
-            $this->disk->put($tempFilename, file_get_contents($tempRealPath));
+        $realPath = $file->getRealPath(); //临时目录
+        $saved_name = '';
 
-            // 合并
-            if ($chunk + 1 === $count) {
-                $realPath = md5(time().Str::random()).'.'.$file->getClientOriginalExtension();
+        if ($chunk === $chunks) {
+            $saved_name = md5('saved_' . date('Ymd-His')) . ".$ext";
 
-                $fp = fopen($realPath,'ab');
+            $this->disk->put($dir . $saved_name, file_get_contents($realPath)); // 直接保存
 
-                for($i=0; $i<$count; $i++) {
-                    $tmp_files = $this->cleanFolder('temp_chunk').md5($originalName).'-'.($i+1).'.tmp';
+        } else {
+            $filename = md5($originalName).'-'.($chunk+1).'.tmp';
+            $this->disk->put('patchPath'.$filename, file_get_contents($realPath));
+
+            if (($chunk + 1) === $chunks) {
+                $saved_name = md5('saved_'. date('Ymd-His')) . ".$ext";
+                $file_names = storage_path('app/patchPath') . $saved_name;
+
+                $fp = fopen($file_names,'ab');
+
+                for($i=0; $i<$chunks; $i++){
+                    $tmp_files = storage_path('app/patchPath/') . md5($originalName).'-'.($i+1).'.tmp';
                     $handle = fopen($tmp_files,'rb');
-                    fwrite($fp, fread($handle,filesize($tmp_files)));
+                    fwrite($fp, fread($handle, filesize($tmp_files)));
                     fclose($handle);
                     unlink($tmp_files);
                 }
+                //关闭句柄
                 fclose($fp);
             }
         }
 
         return [
-            'filename' => str_replace($dir.'/', '', $realPath),
+            'filename' => $saved_name,
             'original_name' => $originalName,
             'mime' => $file->getMimeType(),
             'size' => $this->formatSize($file->getSize()),
-            'real_path' => $realPath,
-            'relative_url' => 'storage/' . $realPath,
-            'url' => asset('storage/' . $realPath),
+            'real_path' => $saved_name,
+            'relative_url' => 'storage/' . $saved_name,
+            'url' => asset('storage/' . $saved_name),
         ];
     }
 

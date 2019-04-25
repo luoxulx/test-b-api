@@ -22,7 +22,7 @@ class CreateArticlesTable extends Migration
             $table->string('title', 225)->nullable(false)->comment('title');
             $table->string('slug')->unique()->nullable(false)->index()->comment('url slug for SEO');
             $table->string('source', 255)->nullable()->comment('来源网址');
-            $table->string('description', 225)->nullable()->comment('描述');
+            $table->mediumText('description')->nullable()->comment('描述');
             $table->string('thumbnail', 225)->nullable()->comment('缩略图');
             $table->longText('content')->nullable()->comment('主体内容json{raw,html}');
             $table->timestamps();

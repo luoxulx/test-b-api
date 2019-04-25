@@ -16,8 +16,8 @@ Route::group(['middleware' => 'validate.input'], function () {
     Route::post('auth/login', 'AuthController@login')->name('api.auth.login');
 
     Route::post('file/upload', 'OpenController@upload')->name('api.file.upload');
-    Route::post('file/chunk_upload', 'OpenController@chunk_upload')->name('api.file.chunk_upload');
-    Route::get('bing/today_pic', 'OpenController@today_pic')->name('api.bing.today_pic');
+    Route::post('file/patch_upload', 'OpenController@patch_upload')->name('api.file.patch_upload');
+    Route::get('bing/picture', 'OpenController@picture')->name('api.bing.picture');
 
     /** ---------- open api end---------- */
 
@@ -79,6 +79,19 @@ Route::group(['middleware' => 'validate.input'], function () {
             ],
             'except' => ['create', 'edit'],
             'parameters' => ['comment' => 'id']
+        ]);
+
+        // video
+        Route::resource('video', 'VideoController', [
+            'name' => [
+                'index' => 'api.video.index',
+                'show' => 'api.video.show',
+                'store' => 'api.video.store',
+                'update' => 'api.video.update',
+                'destroy' => 'api.video.destroy',
+            ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['video' => 'id']
         ]);
 
         // user

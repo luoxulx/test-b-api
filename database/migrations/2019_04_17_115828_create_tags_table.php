@@ -18,7 +18,7 @@ class CreateTagsTable extends Migration
             $table->string('name', 125)->nullable(false);
             $table->string('color', 8)->nullable()->default('#6006D5')->comment('color');
             $table->string('style', 50)->nullable()->default('successful')->comment('class名');
-            $table->string('description')->nullable();
+            $table->mediumText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

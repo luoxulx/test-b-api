@@ -15,8 +15,10 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('created_by', 100)->nullable()->comment('guest nickname');
-            $table->mediumText('content')->comment('评论内容');
+            $table->string('nickname', 128)->nullable()->comment('guest nickname');
+            $table->string('email', 128)->nullable()->comment('guest email');
+            $table->string('site', 128)->nullable()->comment('guest site');
+            $table->mediumText('content')->nullable()->comment('评论内容');
 
             $table->timestamps();
             $table->softDeletes();
