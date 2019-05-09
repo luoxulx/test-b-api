@@ -68,12 +68,12 @@ class OpenController extends BaseController
 
         if ($param['format'] == 'xml') {
             header('Content-type: text/xml');
-            $response = curl($uri, $param, 'get');
+            $response = guzzleRequest($uri, ['query'=>$param], 'get');
             echo $response;
             die;
         }
 
-        $response = json_decode(curl($uri, $param, 'get'), true);
+        $response = json_decode(guzzleRequest($uri, ['query'=>$param], 'get'), true);
 
         foreach ($response['images'] as $key => $val) {
             $response['images'][$key]['real_url'] = $val['url'] ? 'https://cn.bing.com' . $val['url'] : $defaultUrl;

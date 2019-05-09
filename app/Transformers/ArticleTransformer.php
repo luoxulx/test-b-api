@@ -23,6 +23,7 @@ class ArticleTransformer extends TransformerAbstract
     public function transform(Article $article)
     {
         $result = $article->attributesToArray();
+        $result['enUS'] = $article->enUS()->select(['title_en','content_en']);
         $result['category_name'] = $article->category()->value('name');
         $result['user_name'] = $article->user()->value('name');
 

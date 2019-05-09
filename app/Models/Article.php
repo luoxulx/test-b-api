@@ -55,6 +55,11 @@ class Article extends BaseModel
         $this->attributes['slug'] = $slug;
     }
 
+    public function enUS()
+    {
+        return $this->morphOne(ArticleEn::class, 'articleable');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

@@ -41,6 +41,7 @@ class ArticleRepository extends BaseRepository
 //            $input['tags'] = [];
 //        }
         $this->model->tags()->sync($input['tags']);
+        $this->model->enUS()->sync();
 
         return $this->model;
     }
