@@ -22,6 +22,13 @@
         </div>
       </div>
     </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--<div class="form-group">-->
+          <!--<img :src="verifyCodeBase64" :data-key="verifyCodeKey" @onclick="getVerifyCodeBase64()">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
     <div class="form-group clearfix">
       <button type="submit" class="btn btn-primary float-right ts-btn-arrow" id="form-contact-submit">SUBMIT</button>
     </div>
@@ -39,13 +46,27 @@
           nickname: '',
           email: '',
           content: '',
-        }
+        },
+        verifyCodeBase64: '',
+        verifyCodeKey: ''
       }
     },
     mounted() {
-      window.axios.get('/test').then((response)=>{
-        console.log(response)
-      })
+      // this.getVerifyCodeBase64()
+    },
+    methods: {
+      getVerifyCodeBase64(config) {
+        var style = ''
+        if (config) {
+          style = config
+        }
+        window.axios.get('/captcha/api/'+style).then((response)=>{
+          this.verifyCodeBase64 = response.img
+          this.verifyCodeKey = response.key
+        }).catch((error)=>{
+          console.error(error)
+        })
+      }
     }
   }
 </script>

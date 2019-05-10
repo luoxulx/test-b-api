@@ -2,6 +2,11 @@
 
 return [
 
+    '14k' => [
+        'bing_uri' => env('APP_ENV') === 'production' ? 'https://bing.com/HPImageArchive.aspx' : 'https://cn.bing.com/HPImageArchive.aspx',
+        'bing_host' => env('APP_ENV') === 'production' ? 'https://bing.com' : 'https://cn.bing.com',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

@@ -29,7 +29,7 @@
             <a href="#my-services" class="ts-btn-effect position-absolute ts-bottom__0 ts-left__0 ts-scroll ml-3 mb-3"><span class="ts-visible ts-circle__sm rounded-0 ts-bg-primary"><i class="fa fa-arrow-down text-white"></i></span><span class="ts-hidden ts-circle__sm rounded-0"><i class="fa fa-arrow-down text-white"></i></span></a>
         </div>
         <div class="ts-background">
-            <div class="ts-background-image" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/bg-hero.jpg"></div>
+            <div class="ts-background-image" data-bg-image="{{ $bingPic[random_int(0, 7)] }}"></div>
         </div>
     </div>
 
@@ -141,7 +141,7 @@
             <div class="container">
                 <div class="ts-title text-center"><h2>About Me</h2></div><!--end ts-title-->
                 <div class="row ts-align__vertical">
-                    <div class="col-md-6"><img src="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/img-man-looking.jpg" alt="" class="mw-100 mb-5"></div>
+                    <div class="col-md-6"><img src="{{ $bingPic[random_int(0, 7)] }}" alt="" class="mw-100 mb-5"></div>
                     <div class="col-md-6">
                         <h4 class="ts-bubble-border">Hi There</h4>
                         <p>In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo. Nulla in feugiat elit.</p>
@@ -316,7 +316,7 @@
             </div><!--end container-->
         </section><!--end portfolio-->
 
-        <section class="ts-block" data-bg-image="http://luoxu.oss-cn-shanghai.aliyuncs.com/olr/bg-man-sitting.jpg">
+        <section class="ts-block" data-bg-image="{{ $bingPic[random_int(0, 7)] }}">
             <div class="container ts-promo-numbers">
                 <div class="row">
                     <div class="col-sm-6 col-md-3">
