@@ -1,5 +1,5 @@
 <footer id="ts-footer" class="mt-5">
-    <section id="contact" class="ts-block ts-separate-bg-element" data-bg-image="{{ $bingPic[random_int(0, 7)] }}" data-bg-image-opacity=".1">
+    <section id="contact" class="ts-block ts-separate-bg-element" data-bg-image="{{ $bingPic[3] }}" data-bg-image-opacity=".1">
         <div class="container">
             <div class="ts-title text-center"><h2 class="ts-bubble-border">Get In Touch</h2></div>
             <div class="row ts-xs-text-center ">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h3>LEAVE COMMENTS</h3>
+                        <h3>LEAVE FEEDBACK</h3>
                         <feedback-component></feedback-component>
                     </div>
                 </div>

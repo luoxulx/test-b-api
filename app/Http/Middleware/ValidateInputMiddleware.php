@@ -43,8 +43,11 @@ class ValidateInputMiddleware
             }
 
             foreach ($result as $v){
-                if (! \is_string($v['value'])) {$v['value'] = json_encode($v['value']);};
-                $msg[] = $v['field'].'='.$v['value'].','.$v['code'];
+                if (! \is_string($v['value'])) {
+                    $v['value'] = json_encode($v['value']);
+                }
+                // $msg[] = $v['field'].'='.$v['value'].','.$v['code'];
+                $msg[] = $v['code'].', '.$v['field'].'='.$v['value'];
             }
             throw new ValidationHttpException(implode('; ',$msg));
         }

@@ -15,13 +15,14 @@
                         <a href="#" class="mr-3"><i class="fab fa-slack"></i></a>
                         <a href="#" class="mr-3"><i class="fab fa-instagram"></i></a>
                     </figure>
-                    <h1>I'm 14k.Frankenstein</h1>
+                    <h1>14k</h1>
                     <h1 class="ts-bubble-border">
                         <span class="ts-title-rotate">
-                            <span class="active">White Hat</span>
-                            <span>The Go Programming Language</span>
-                            <span>C++&Python Developer</span>
-                            <span>Laravel|Web Designer</span>
+                            <span class="active">Hacker</span>
+                            <span>World of Warcraft, For Azeroth</span>
+                            <span>Go | Laravel</span>
+                            <span>C++ & Python Developer</span>
+                            <span>Web Designer</span>
                         </span>
                     </h1>
                 </div>
@@ -29,7 +30,7 @@
             <a href="#my-services" class="ts-btn-effect position-absolute ts-bottom__0 ts-left__0 ts-scroll ml-3 mb-3"><span class="ts-visible ts-circle__sm rounded-0 ts-bg-primary"><i class="fa fa-arrow-down text-white"></i></span><span class="ts-hidden ts-circle__sm rounded-0"><i class="fa fa-arrow-down text-white"></i></span></a>
         </div>
         <div class="ts-background">
-            <div class="ts-background-image" data-bg-image="{{ $bingPic[random_int(0, 7)] }}"></div>
+            <div class="ts-background-image" data-bg-image="{{ $bingPic[0] }}"></div>
         </div>
     </div>
 
@@ -141,7 +142,7 @@
             <div class="container">
                 <div class="ts-title text-center"><h2>About Me</h2></div><!--end ts-title-->
                 <div class="row ts-align__vertical">
-                    <div class="col-md-6"><img src="{{ $bingPic[random_int(0, 7)] }}" alt="" class="mw-100 mb-5"></div>
+                    <div class="col-md-6"><img src="{{ $bingPic[1] }}" alt="" class="mw-100 mb-5"></div>
                     <div class="col-md-6">
                         <h4 class="ts-bubble-border">Hi There</h4>
                         <p>In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo. Nulla in feugiat elit.</p>
@@ -316,7 +317,7 @@
             </div><!--end container-->
         </section><!--end portfolio-->
 
-        <section class="ts-block" data-bg-image="{{ $bingPic[random_int(0, 7)] }}">
+        <section class="ts-block" data-bg-image="{{ $bingPic[2] }}">
             <div class="container ts-promo-numbers">
                 <div class="row">
                     <div class="col-sm-6 col-md-3">
@@ -393,5 +394,5 @@
 
         @include('front.layout.foot')
     </div>
-    {{--@include('front.layout.modal')--}}
+    @include('front.layout.modal')
 @endsection

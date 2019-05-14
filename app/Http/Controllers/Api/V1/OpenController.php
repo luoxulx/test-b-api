@@ -49,7 +49,7 @@ class OpenController extends BaseController
      * @imageHost http://cn.bing.com
      * @return \Illuminate\Http\JsonResponse
      */
-    public function picture()
+    public function pictures()
     {
         $param['n'] = request()->get('n', 1);
         $param['format'] = request()->get('format', 'js');

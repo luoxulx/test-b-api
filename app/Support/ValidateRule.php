@@ -70,6 +70,11 @@ class ValidateRule
             ],
             'tag.batch' => [
                 'ids' => 'required|array'
+            ],
+            'feedback.store' => [
+                'nickname' => 'required|string|max:32',
+                'email' => 'required|email|max:64',
+                'content' => 'required|string',
             ]
         ];
 

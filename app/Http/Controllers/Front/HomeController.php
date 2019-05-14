@@ -15,7 +15,7 @@ class HomeController extends FrontController
         $bingPic = cache('home_bing_pic_8_num');
         if (! $bingPic) {
             // n，必要参数。这是输出信息的数量。比如n=1，即为1条，以此类推，至多输出8条。
-            $param['n'] = 8;
+            $param['n'] = 4;
             $param['format'] = 'js';
             $param['idx'] = 0;
 
@@ -34,6 +34,7 @@ class HomeController extends FrontController
             cache(['home_bing_pic_8_num'=>$bingPic], 1440);
             unset($response);
         }
+        shuffle($bingPic);
 
         return view('front.home.index', ['bingPic'=>$bingPic]);
     }

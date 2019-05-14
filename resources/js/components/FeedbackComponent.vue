@@ -1,5 +1,5 @@
 <template>
-  <form id="form-contact" method="post" class="clearfix ts-form ts-form-email" data-php-path="assets/php/email.php">
+  <form id="form-contact" :model="feedbackForm" class="clearfix ts-form ts-form-email">
     <div class="row">
       <div class="col-md-6 col-sm-6">
         <div class="form-group">
@@ -22,15 +22,8 @@
         </div>
       </div>
     </div>
-    <!--<div class="row">-->
-      <!--<div class="col-md-12">-->
-        <!--<div class="form-group">-->
-          <!--<img :src="verifyCodeBase64" :data-key="verifyCodeKey" @onclick="getVerifyCodeBase64()">-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
     <div class="form-group clearfix">
-      <button type="submit" class="btn btn-primary float-right ts-btn-arrow" id="form-contact-submit">SUBMIT</button>
+      <button @click="submitGuestFeedback" type="button" class="btn btn-primary float-right ts-btn-arrow">SUBMIT</button>
     </div>
     <div class="form-contact-status"></div>
   </form>
@@ -55,6 +48,26 @@
       // this.getVerifyCodeBase64()
     },
     methods: {
+      submitGuestFeedback() {
+        if (!this.feedbackForm.nickname) {
+          return false
+        }
+        if (!this.feedbackForm.email) {
+          return false
+        }
+        if (!this.feedbackForm.content) {
+          console.log('content null')
+          return false
+        }
+        window.axios.post('/api/open/feedback', this.feedbackForm).then((response) => {
+          console.log(response)
+          this.feedbackForm.nickname = ''
+          this.feedbackForm.email = ''
+          this.feedbackForm.content = ''
+        }).catch((error) => {
+          console.error(error)
+        })
+      },
       getVerifyCodeBase64(config) {
         var style = ''
         if (config) {
