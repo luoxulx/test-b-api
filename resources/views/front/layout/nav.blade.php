@@ -5,9 +5,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav d-block d-lg-flex ml-auto text-right">
                 <a class="nav-item nav-link active ts-scroll" href="#page-top">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link ts-scroll" href="{{ route('blog.index') }}">Blog</a>
+                <a class="nav-item nav-link ts-scroll" href="#">Blog</a>
                 <a class="nav-item nav-link ts-scroll" href="#my-services">Services</a>
-                <a class="nav-item nav-link ts-scroll" href="#about-me">About Me</a>
+                <a class="nav-item nav-link ts-scroll" href="#about-me"> Me</a>
                 <a class="nav-item nav-link ts-scroll" href="#my-skills">Skills</a>
                 <a class="nav-item nav-link ts-scroll" href="#portfolio">Pictures</a>
                 <a class="nav-item nav-link ts-scroll" href="#testimonials">Clients</a>

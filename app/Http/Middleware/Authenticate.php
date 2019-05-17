@@ -18,7 +18,7 @@ class Authenticate extends Middleware
 //            return route('login');
 //        }
         if ($request->is('api/*')) {
-            return response()->json(['message'=>'token error'], 401);
+            return response()->json(['message'=>'JWT Token error'], 401);
         }
 
         return route('front.login');

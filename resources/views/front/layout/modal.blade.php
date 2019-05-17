@@ -1,4 +1,4 @@
-<div class="modal fade text-dark" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+<div class="modal fade text-dark" id="modal-hacker" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content border-0 rounded-0">
             <div class="modal-header bg-light px-5 pt-0 pb-5">
@@ -25,11 +25,10 @@
                                         <li>SEO Optimization</li>
                                         <li>Hosting</li>
                                     </ul>
-                                </div><!--end col-md-8-->
-                            </div><!--end row-->
-                        </div><!--end container-fluid-->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!--end slide-->
                     <div class="slide">
                         <div class="container-fluid">
                             <div class="row">
@@ -46,12 +45,12 @@
                                         <li>SEO Optimization</li>
                                         <li>Hosting</li>
                                     </ul>
-                                </div><!--end col-md-8-->
-                            </div><!--end row-->
-                        </div><!--end container-fluid-->
-                    </div><!--end slide-->
-                </div><!--end owl-carousel-->
-            </div><!--end modal-body-->
-        </div><!--end modal-content-->
-    </div><!--end modal-dialog-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
