@@ -10,7 +10,6 @@
                 <a class="nav-item nav-link ts-scroll" href="#about-me"> Me</a>
                 <a class="nav-item nav-link ts-scroll" href="#my-skills">Skills</a>
                 <a class="nav-item nav-link ts-scroll" href="#portfolio">Pictures</a>
-                <a class="nav-item nav-link ts-scroll" href="#testimonials">Clients</a>
                 <a class="nav-item nav-link ts-scroll mr-2" href="#form-contact">Contact</a>
             </div>
         </div>

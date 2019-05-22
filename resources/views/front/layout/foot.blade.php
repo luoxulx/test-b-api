@@ -38,21 +38,21 @@
                 <div class="row">
                     <div class="col-md-4"><h3>Let’s Connect</h3>
                         <div class="ts-column-count-sm-2">
-                            <a href="https://www.facebook.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical" target="_blank">
-                                <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-facebook"></i></span>
-                                <span>Facebook</span>
-                            </a>
                             <a href="https://github.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical" target="_blank">
                                 <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-github"></i></span>
                                 <span>Github</span>
                             </a>
-                            <a href="https://www.twitter.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical" target="_blank">
-                                <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-twitter"></i></span>
-                                <span>Twitter</span>
-                            </a>
                             <a href="https://www.instagram.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical" target="_blank">
                                 <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-instagram"></i></span>
                                 <span>Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical" target="_blank">
+                                <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-facebook"></i></span>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="https://www.twitter.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical" target="_blank">
+                                <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-twitter"></i></span>
+                                <span>Twitter</span>
                             </a>
                             <a href="https://youtube.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical">
                                 <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-youtube"></i></span>

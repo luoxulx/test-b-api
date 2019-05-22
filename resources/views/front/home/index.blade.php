@@ -44,7 +44,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/static/pic/icon-brushes.png" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/hacker.jpg" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Fake Hacker</h4>
                                     <p class="mb-0"><a href="https://en.wikipedia.org/wiki/Hacker" target="_blank">Hacker</a> Arsenal What is done is not malicious destruction, they are a group of technical personnel across the network, keen on scientific and technological exploration, Computer science research. </p>
@@ -60,7 +60,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".1s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/static/pic/icon-camera.png" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/python.jpg" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Python</h4>
                                     <p class="mb-0"><a href="https://www.python.org/" target="_blank">Python</a> is powerful... and fast,plays well with others,runs everywhere,is friendly & easy to learn,is Open.These are some of the reasons people who use Python would rather not use anything else. </p>
@@ -76,7 +76,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".2s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/static/pic/icon-video.png" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/vue.jpg" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Web & Vue</h4>
                                     <p class="mb-0"><a href="https://vuejs.org/v2/guide/" target="_blank">Vue</a>, an incrementally adoptable ecosystem that scales between a library and a full-featured framework. 20KB min+gzip Runtime Blazing Fast Virtual DOM Minimal Optimization Efforts. </p></div>
@@ -91,7 +91,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".3s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/static/pic/icon-pencil.png" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/php.jpg" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>PHP & Laravel</h4>
                                     <p class="mb-0">Laravel, Value elegance, simplicity, and readability? You’ll fit right in. <a href="https://laravel.com/" target="_blank">Laravel</a> is designed for people just like you. If you need help getting started, check out Laracasts and their great <a href="https://laravel.com/docs" target="_blank">documentation</a>. </p></div>
@@ -106,7 +106,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".4s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/static/pic/icon-lcd.png" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/icon-lcd.png" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Go</h4>
                                     <p class="mb-0"><a href="https://golang.org/" target="_blank">Go</a> is an open source programming language that makes it easy to build simple, reliable, and efficient software. </p>
@@ -122,7 +122,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".5s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/static/pic/icon-phone.png" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/wow.jpg" alt=""></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>World of Warcraft</h4>
                                     <p class="mb-0"><a href="https://worldofwarcraft.com/" target="_blank">World of Warcraft (WoW)</a> is a massively multiplayer online role-playing game (MMORPG) released in 2004 by Blizzard Entertainment. </p>
@@ -175,7 +175,7 @@
                 <div class="text-center px-5 pt-5 position-relative">
                     <h3 class="my-3"> Fish and bear's paw can not be both, but single and poor can! </h3>
                     <a href="#contact" class="btn btn-primary mr-2 ts-push-down__50 ts-has-talk-arrow">WeChat: Antediluvian-X</a>
-                    <div class="ts-background ts-opacity__20" data-bg-image="/static/pic/bg-keyboard.jpg"></div>
+                    <div class="ts-background ts-opacity__20" data-bg-image="/images/pic/bg-keyboard.jpg"></div>
                 </div>
             </div>
         </section>
@@ -183,12 +183,12 @@
         <section id="my-skills" class="ts-block pb-5">
             <div class="container">
                 <div class="ts-title text-center">
-                    <h2>My Skills</h2>
+                    <h2>Skills</h2>
                 </div>
                 <h4>Every Day is a New Challenge</h4>
                 <div class="row">
                     <div class="col-md-6">
-                        <p>xxx</p>
+                        <p>One day, I will become a legitimate American. </p>
                         <a href="#contact" class="btn btn-outline-light mb-5">Contact Me</a>
                     </div>
                     <div class="col-md-6">
@@ -247,117 +247,36 @@
                     </div>
                 </div>
             </section>
-        <!-- portfolio -->
+        <!-- photos -->
         <section class="ts-block pb-5" id="portfolio">
             <div class="container">
-                <div class="ts-title"><h2>Portfolio</h2></div>
+                <div class="ts-title"><h2>Photos</h2></div>
                 <div class="card-columns ts-gallery ts-column-count-4">
-                    <a href="/static/pic/img-work-01.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                    @forelse($allPics as $val)
+                        <a href="{{ $val['real_url'] }}" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                            <div class="ts-gallery__image"><img src="{{ $val['real_url'] }}" class="card-img" alt="">
+                                <div class="ts-gallery__item-description">
+                                    <h6 class="ts-opacity__50 ts-text-small">{{ $val['copyright'] }}</h6>
+                                    <h4>{{ $val['startdate'] }}</h4>
+                                </div>
+                            </div>
+                        </a>
+                    @empty
+                        <a href="/images/pic/img-work-01.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
                         <div class="ts-gallery__item-description">
                             <h6 class="ts-opacity__50">Branding</h6>
                             <h4>Pehaz</h4>
                         </div>
-                        <img src="/static/pic/img-work-01.png" class="card-img" alt=""><!--end ts-gallery__image-->
+                        <img src="/images/pic/img-work-01.png" class="card-img" alt=""><!--end ts-gallery__image-->
                     </a><!--end card ts-gallery__item-->
+                    @endforelse
 
-                    <a href="/static/pic/img-work-02.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Webdesign</h6>
-                                <h4>Carilo</h4>
-                            </div>
-                            <img src="/static/pic/img-work-02.png" class="card-img" alt=""><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-03.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-03.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Typography</h6>
-                                <h4>Kali</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-04.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-04.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Identity</h6>
-                                <h4>Purity</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-05.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-05.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Coding</h6>
-                                <h4>SawMill</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-06.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-06.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Webdesign</h6>
-                                <h4>Browar</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-07.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-07.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Experiment</h6>
-                                <h4>Wood Tables</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-08.png" class="card ts-gallery__item popup-image"
-                       data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-08.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Product Design</h6>
-                                <h4>Air Purifier</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-10.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-10.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">App Developing</h6>
-                                <h4>Boombox</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-11.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-11.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">3D Art</h6>
-                                <h4>The Deer</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                    <a href="/static/pic/img-work-09.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                        <div class="ts-gallery__image"><img src="/static/pic/img-work-09.png" class="card-img" alt="">
-                            <div class="ts-gallery__item-description">
-                                <h6 class="ts-opacity__50">Rebranding</h6>
-                                <h4>Dafont</h4>
-                            </div><!--end ts-gallery__item-description-->
-                        </div><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
-
-                </div><!--end ts-gallery-->
-            </div><!--end container-->
+                </div>
+            </div>
         </section>
     </main>
 
         @include('front.layout.foot')
     </div>
-    @include('front.layout.modal')
+    {{--@include('front.layout.modal')--}}
 @endsection

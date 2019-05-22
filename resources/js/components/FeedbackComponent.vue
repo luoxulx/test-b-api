@@ -59,6 +59,7 @@
           console.log('content null')
           return false
         }
+        return false
         window.axios.post('/api/open/feedback', this.feedbackForm).then((response) => {
           console.log(response)
           this.feedbackForm.nickname = ''
