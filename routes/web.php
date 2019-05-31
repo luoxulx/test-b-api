@@ -17,3 +17,8 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('blog', 'BlogController@index')->name('blog.index');
     Route::get('{slug}', 'BlogController@show')->name('blog.show');
 });
+
+Route::get('auth/github', 'Auth\AuthGithubController@redirectToProvider');
+Route::get('auth/github/callback', 'Auth\AuthGithubController@handleProviderCallback');
+Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');

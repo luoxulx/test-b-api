@@ -34,6 +34,7 @@ class AuthGithubController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('github')->user();
+        dd($user);
 
         // $user->token;
     }
