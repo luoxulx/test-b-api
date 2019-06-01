@@ -22,4 +22,9 @@ class UserRepository extends BaseRepository
         return Auth::user();
     }
 
+    public function getByGithubId($githubId)
+    {
+        return $this->model->githubUser()->where('id', '=', $githubId)->first();
+    }
+
 }
