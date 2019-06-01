@@ -22,8 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('avatar',200)->nullable()->comment('用户头像链接');
             $table->mediumText('introduction')->nullable();
             $table->tinyInteger('is_admin', false, true)->default(0);
-            $table->integer('github_id', false, true)->nullable();
-            $table->integer('facebook_id', false, true)->nullable();
             $table->rememberToken();
 
             $table->timestamp('email_verified_at')->nullable();
