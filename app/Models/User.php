@@ -69,6 +69,6 @@ class User extends Authenticatable implements JWTSubject
 
     public function githubUser()
     {
-        return $this->hasOne('github_users', 'user_id', 'id');
+        return $this->hasOne(GithubUser::class, 'user_id', 'id');
     }
 }

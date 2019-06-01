@@ -7,14 +7,18 @@
  */
 namespace App\Repositories;
 
+use App\Models\GithubUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class UserRepository extends BaseRepository
 {
-    public function __construct(User $user)
+    protected $githubUser;
+
+    public function __construct(User $user, GithubUser $githubUser)
     {
         $this->model = $user;
+        $this->githubUser = $githubUser;
     }
 
     public function me()
@@ -24,7 +28,7 @@ class UserRepository extends BaseRepository
 
     public function getByGithubId($githubId)
     {
-        return $this->model->githubUser()->where('id', '=', $githubId)->first();
+        return $this->githubUser->where(['id'=>$githubId])->first();
     }
 
 }
