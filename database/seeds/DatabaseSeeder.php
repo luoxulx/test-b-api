@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'lx',
             'email' => 'lx@lx.com',
             'is_admin' => 1,
-            'introduction' => '滚马网络---测试',
-            'avatar' => 'http://duoke3-image.oss-cn-hangzhou.aliyuncs.com/test/test/duoke-aaa.png',
+            'introduction' => 'xxx',
+            'avatar' => 'https://www.lnmpa.top/images/pic/default-avatar.jpg',
             'password' => 'aaaaaa'
         ]);
 

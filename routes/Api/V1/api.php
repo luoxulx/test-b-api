@@ -13,7 +13,6 @@
 
 Route::group(['middleware' => 'validate.input'], function () {
     /** ---------- open api start---------- */
-    Route::post('/luoxu/webhooks', 'OpenController@webhooks'); //webhooks
     Route::post('auth/login', 'AuthController@login')->name('api.auth.login');
 
     Route::post('file/upload', 'OpenController@upload')->name('api.file.upload');

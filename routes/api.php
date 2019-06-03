@@ -10,3 +10,5 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// webhook open api
+Route::post('/14k/pull', 'WebhookController@pull'); //webhooks
