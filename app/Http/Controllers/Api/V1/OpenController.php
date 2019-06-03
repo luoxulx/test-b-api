@@ -25,8 +25,28 @@ class OpenController extends BaseController
     {
         // webhooks
         $param = request()->post();
+        $headers = request()->header();
+        if (! $param || ! $headers) {
+            throw new \Exception('request error', 400);
+        }
 
-        return response()->json($param);
+        $secret = 'frankenstein-14k';
+        $githubSign = $headers['x-hub-signature'][0];
+        $hash = 'sha1='.hash_hmac('sha1', file_get_contents('php://input'), $secret);
+        dd($hash);
+        if (strcmp($githubSign, $hash) === 0) {
+            return response()->json($param);
+        } else {
+            set_time_limit(120);
+            $shellPath = '/var/web/lnmpa.top';
+            $cmd = "cd $shellPath && su lx && git checkout -f && git pull";
+
+            exec($cmd, $result);
+
+            return $this->response->json(['data'=>$result, 'message'=>'sha1 error']);
+        }
+
+        // throw new \Exception('sign error', 400);
     }
 
     public function upload(FileManager $fileManager, FileRepository $fileRepository)
