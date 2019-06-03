@@ -39,7 +39,8 @@ class OpenController extends BaseController
         } else {
             set_time_limit(120);
             $shellPath = '/var/web/lnmpa.top';
-            $cmd = "cd $shellPath && git checkout -f && git pull";
+            // php-fpm 用户就是 lx，所以不用切换用户
+            $cmd = "cd $shellPath && git checkout -f && git pull origin master";
 
             exec($cmd, $result);
 
