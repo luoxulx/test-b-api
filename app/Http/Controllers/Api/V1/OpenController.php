@@ -39,7 +39,7 @@ class OpenController extends BaseController
         } else {
             set_time_limit(120);
             $shellPath = '/var/web/lnmpa.top';
-            $cmd = "cd $shellPath && su lx && git checkout -f && git pull";
+            $cmd = "cd $shellPath && git checkout -f && git pull";
 
             exec($cmd, $result);
 
