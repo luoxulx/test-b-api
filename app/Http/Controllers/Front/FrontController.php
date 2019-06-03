@@ -12,10 +12,4 @@ use App\Http\Controllers\Controller;
 class FrontController extends Controller
 {
 
-    public function webhooks()
-    {
-        $param = request()->post();
-
-        return response()->json($param);
-    }
 }

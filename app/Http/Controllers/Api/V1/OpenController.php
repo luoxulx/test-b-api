@@ -21,6 +21,14 @@ class OpenController extends BaseController
         parent::__construct();
     }
 
+    public function webhooks()
+    {
+        // webhooks
+        $param = request()->post();
+
+        return response()->json($param);
+    }
+
     public function upload(FileManager $fileManager, FileRepository $fileRepository)
     {
         $file = request()->file('file');
