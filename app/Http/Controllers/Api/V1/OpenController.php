@@ -33,7 +33,7 @@ class OpenController extends BaseController
         $secret = 'frankenstein-14k';
         $githubSign = $headers['x-hub-signature'][0];
         $hash = 'sha1='.hash_hmac('sha1', file_get_contents('php://input'), $secret);
-        dd($hash);
+
         if (strcmp($githubSign, $hash) === 0) {
             return response()->json($param);
         } else {
