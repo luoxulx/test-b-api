@@ -16,11 +16,11 @@ class ArticleEn extends Model
     protected $table = 'articles_en';
 
     protected $fillable = [
-        'article_id', 'title_en', 'source_en', 'description_en', 'content_en'
+        'article_id', 'title', 'source', 'description', 'content'
     ];
 
-    public function zhCN()
+    public function article()
     {
-        return $this->morphOne(Article::class, 'articleable');
+        return $this->belongsTo(Article::class);
     }
 }

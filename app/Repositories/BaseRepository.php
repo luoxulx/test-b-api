@@ -6,6 +6,8 @@
  * Time: 下午8:55
  */
 namespace App\Repositories;
+use Illuminate\Support\Facades\DB;
+
 class BaseRepository implements BaseRepositoryInterface
 {
     protected $model;
@@ -88,6 +90,21 @@ class BaseRepository implements BaseRepositoryInterface
     public function getColumnByIdField(string $field, int $value)
     {
         return $this->model->where($field, $value)->first();
+    }
+
+
+    // transaction
+    protected function beginTransaction()
+    {
+        DB::beginTransaction();
+    }
+    protected function commit()
+    {
+        DB::commit();
+    }
+    protected function rollback()
+    {
+        DB::rollBack();
     }
 
 }

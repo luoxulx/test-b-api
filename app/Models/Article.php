@@ -37,10 +37,9 @@ class Article extends BaseModel
         return $value ? true : false;
     }
 
-    protected function setTitleAttribute($value)
+    protected function setSlugAttribute($value)
     {
-        $this->attributes['title'] = $value;
-        $this->setUniqueSlug($value, Str::random(12));
+        $this->attributes['slug'] = Str::slug($value);
     }
 
     private function setUniqueSlug($value, $extra)
@@ -49,15 +48,14 @@ class Article extends BaseModel
 
         if (static::whereSlug($slug)->exists()) {
             $this->setUniqueSlug($slug, (int) $extra + 1);
-            return;
         }
 
-        $this->attributes['slug'] = $slug;
+        return $slug;
     }
 
-    public function enUS()
+    public function en()
     {
-        return $this->morphOne(ArticleEn::class, 'articleable');
+        return $this->hasOne(ArticleEn::class);
     }
 
     public function user()

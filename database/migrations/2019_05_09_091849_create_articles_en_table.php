@@ -16,10 +16,12 @@ class CreateArticlesEnTable extends Migration
         Schema::create('articles_en', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('article_id', false, true)->comment('关联主表 id');
-            $table->string('title_en', 225)->nullable();
-            $table->string('source_en', 225)->nullable();
-            $table->mediumText('description_en')->nullable();
-            $table->longText('content_en')->nullable();
+            $table->string('title', 225)->nullable();
+            $table->string('source', 225)->nullable();
+            $table->mediumText('description')->nullable();
+            $table->longText('content')->nullable();
+
+            $table->timestamps();
         });
     }
 
