@@ -56,7 +56,7 @@ class OpenController extends BaseController
         $param['idx'] = request()->get('idx', 0);
 
         $defaultUrl = 'https://cn.bing.com/th?id=OHR.FireIce_ZH-CN2924097132_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp';
-        $uri = 'http://cn.bing.com/HPImageArchive.aspx';
+        $uri = config('app.14k.bing_uri');
 
         if (! \in_array($param['format'], ['js','xml'])) {
             return $this->response->setHttpCode(422)->json([
@@ -76,7 +76,7 @@ class OpenController extends BaseController
         $response = guzzleRequest($uri, ['query'=>$param], 'get');
 
         foreach ($response['images'] as $key => $val) {
-            $response['images'][$key]['real_url'] = $val['url'] ? 'https://cn.bing.com' . $val['url'] : $defaultUrl;
+            $response['images'][$key]['real_url'] = $val['url'] ? config('app.14k.bing_host') . $val['url'] : $defaultUrl;
         }
 
         return $this->response->json(['data'=>$response]);

@@ -20,6 +20,11 @@ Route::group(['middleware' => 'validate.input'], function () {
     Route::get('open/bing/pictures', 'OpenController@pictures')->name('api.open.bing.pictures');
     Route::post('open/feedback', 'FeedbackController@store')->name('api.open.feedback');
 
+    // test
+    Route::get('system/logs', 'SystemLogController@index')->name('api.system.log.index');
+    Route::get('system/logs/{file}', 'SystemLogController@index')->name('api.system.log.file');
+    Route::get('system/logs/{file}/tail', 'SystemLogController@tail')->name('api.system.log.file.tail');
+
     /** ---------- open api end---------- */
 
     Route::group(['middleware' => 'auth:api'], function () {
