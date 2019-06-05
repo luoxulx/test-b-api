@@ -34,9 +34,9 @@ class WebhookController extends Controller
         } else {
             set_time_limit(120);
             // php-fpm 用户就是 lx，所以不用切换用户
-            shell_exec(base_path('pull.sh'));
+            exec('cd /var/web/lnmpa.top/ && git pull', $result);
 
-            return response()->json(['data'=>'sb', 'message'=>'sha1 error']);
+            return response()->json(['data'=>$result, 'message'=>'sha1 error']);
         }
     }
 }
