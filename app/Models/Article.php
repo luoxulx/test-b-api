@@ -26,6 +26,7 @@ class Article extends BaseModel
         'description',
         'thumbnail',
         'content',
+        'published_at',
     ];
 
 //    protected function setIsDraftAttribute($value)
