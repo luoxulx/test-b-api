@@ -8,6 +8,7 @@
 
 namespace App\Models;
 
+use App\Support\BaiduTranslate;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends BaseModel
@@ -21,6 +22,7 @@ class Article extends BaseModel
         'is_draft',
         'view_count',
         'title',
+        'title2', // 临时字段
         'slug',
         'source',
         'description',
@@ -29,16 +31,29 @@ class Article extends BaseModel
         'published_at',
     ];
 
-//    protected function setIsDraftAttribute($value)
-//    {
-//        $this->attributes['is_draft'] = $value ? 1 : 0;
-//    }
-//
+
+
+    public function setPublishedAtAttribute($value)
+    {
+        $value ? $this->attributes['published_at'] = $value : $this->attributes['published_at'] = date('Y-m-d H:i:s');
+    }
+
+    public function setTitleAttribute($title)
+    {
+        $title2 = $title;
+        if (\strlen($title) !== mb_strlen($title)) {
+            $title2 = (new BaiduTranslate()) ->translate($title, 'auto', 'en');
+
+        }
+        $this->attributes['title2'] = $title2;
+        $this->attributes['title'] = $title;
+    }
+
     public function sluggable()
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'title2'
             ]
         ];
     }

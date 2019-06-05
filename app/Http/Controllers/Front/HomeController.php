@@ -26,7 +26,7 @@ class HomeController extends FrontController
 
             $uri = config('app.14k.bing_uri');
 
-            $response = guzzleRequest($uri, ['query'=>$param], 'get');
+            $response = curl($uri, ['query'=>$param], 'get');
 
             $allPics = [];
             $bingPic = [];

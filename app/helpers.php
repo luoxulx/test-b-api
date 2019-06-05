@@ -1,13 +1,13 @@
 <?php
 
-if (!function_exists('guzzleRequest')) {
+if (!function_exists('curl')) {
     /**
      * @param string $uri
      * @param array $data  FORM:['query'=>[]];JSON:['json'=>[],'headers'=>[]],其它 key 还有：form_params,multipart,decode_content,json,query,headers
      * @param string $method
      * @return array|bool|mixed
      */
-    function guzzleRequest(string $uri, array $data = [], string $method = 'GET')
+    function curl(string $uri, array $data = [], string $method = 'GET')
     {
         $client = new \GuzzleHttp\Client([
             'timeout' => 20,

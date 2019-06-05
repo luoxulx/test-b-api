@@ -68,12 +68,12 @@ class OpenController extends BaseController
 
         if (strval($param['format']) === 'xml') {
             header('Content-type: text/xml');
-            $response = guzzleRequest($uri, ['query'=>$param], 'get');
+            $response = curl($uri, ['query'=>$param], 'get');
             echo $response;
             die;
         }
 
-        $response = guzzleRequest($uri, ['query'=>$param], 'get');
+        $response = curl($uri, ['query'=>$param], 'get');
 
         foreach ($response['images'] as $key => $val) {
             $response['images'][$key]['real_url'] = $val['url'] ? config('app.14k.bing_host') . $val['url'] : $defaultUrl;
