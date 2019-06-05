@@ -37,7 +37,7 @@ class ValidateRule
             'article.store' => [
                 'user_id' => 'required|integer',
                 'category_id' => 'required|integer',
-                'tags' => 'required|array',
+                'tags' => 'array',
                 'title' => 'required|string',
                 'source' => 'required|string',
                 'content' => 'required|string'
@@ -45,7 +45,7 @@ class ValidateRule
             'article.update' => [
                 'user_id' => 'required|integer',
                 'category_id' => 'required|integer',
-                'tags' => 'required|array',
+                'tags' => 'array',
                 'title' => 'required|string',
                 'source' => 'required|string',
                 'content' => 'required|string'

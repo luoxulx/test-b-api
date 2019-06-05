@@ -8,11 +8,12 @@
 
 namespace App\Models;
 
-
-use Illuminate\Support\Str;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends BaseModel
 {
+
+    use Sluggable;
 
     protected $fillable = [
         'category_id',
@@ -32,25 +33,23 @@ class Article extends BaseModel
 //        $this->attributes['is_draft'] = $value ? 1 : 0;
 //    }
 //
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected function getIsDraftAttribute($value)
     {
         return $value ? true : false;
-    }
-
-    protected function setSlugAttribute($value)
-    {
-        $this->attributes['slug'] = Str::slug($value);
-    }
-
-    private function setUniqueSlug($value, $extra)
-    {
-        $slug = Str::slug($value);
-
-        if (static::whereSlug($slug)->exists()) {
-            $this->setUniqueSlug($slug, (int) $extra + 1);
-        }
-
-        return $slug;
     }
 
     public function en()
