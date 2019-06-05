@@ -12,6 +12,10 @@ namespace App\Http\Controllers;
 class WebhookController extends Controller
 {
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
     public function pull()
     {
         // webhooks
@@ -29,13 +33,10 @@ class WebhookController extends Controller
             return response()->json($param);
         } else {
             set_time_limit(120);
-            $shellPath = '/var/web/lnmpa.top';
             // php-fpm 用户就是 lx，所以不用切换用户
-            $cmd = "cd $shellPath && git checkout -f && git pull origin master";
+            shell_exec(base_path('pull.sh'));
 
-            exec($cmd, $result);
-
-            return response()->json(['data'=>$result, 'message'=>'sha1 error']);
+            return response()->json(['data'=>'sb', 'message'=>'sha1 error']);
         }
     }
 }
