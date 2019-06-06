@@ -12,3 +12,4 @@
 */
 // webhook open api
 Route::post('/14k/pull', 'WebhookController@pull'); //webhooks
+Route::post('/14k/vue', 'WebhookController@buildVueCil'); //webhooks
