@@ -37,7 +37,7 @@ class WebhookController extends Controller
             return response()->json(['code'=>-1,'message'=>'sha1 error','data'=>$result]);
         }
 
-        return response()->json($param);
+        return response()->json(['data'=>$param,'acr'=>'X-Hub-Signature=false']);
     }
 
     /**
@@ -60,7 +60,7 @@ class WebhookController extends Controller
         if ($lx === 'lx' || strcmp($githubSign, $hash) === 0) {
             set_time_limit(180);
             // php-fpm 用户就是 lx，所以不用切换用户, 只要没有新增 package，就不需要 npm install
-            exec('cd /var/web/14k-lnmpa-web/ && git pull && rm -rf dist/ && npm run build:prod 2>&1', $result);
+            exec('cd /var/web/14k-lnmpa-web/ && git pull && npm -v && npm run build:prod 2>&1', $result);
 
             return response()->json(['code'=>-1,'message'=>'sha1 error','data'=>$result]);
         }
