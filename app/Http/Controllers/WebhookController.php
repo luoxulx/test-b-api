@@ -29,7 +29,7 @@ class WebhookController extends Controller
         $githubSign = request()->header('X-Hub-Signature');
         $hash = 'sha1='.hash_hmac('sha1', file_get_contents('php://input'), $secret);
 
-        if ($lx || strcmp($githubSign, $hash) === 0) {
+        if ($lx === 'lx' || strcmp($githubSign, $hash) === 0) {
             set_time_limit(120);
             // php-fpm 用户就是 lx，所以不用切换用户
             exec('cd /var/web/lnmpa.top/ && git pull 2>&1', $result);
@@ -57,7 +57,7 @@ class WebhookController extends Controller
         $githubSign = request()->header('X-Hub-Signature');
         $hash = 'sha1='.hash_hmac('sha1', file_get_contents('php://input'), $secret);
 
-        if ($lx || strcmp($githubSign, $hash) === 0) {
+        if ($lx === 'lx' || strcmp($githubSign, $hash) === 0) {
             set_time_limit(180);
             // php-fpm 用户就是 lx，所以不用切换用户, 只要没有新增 package，就不需要 npm install
             exec('cd /var/web/14k-lnmpa-web/ && git pull && rm -rf dist/ && npm run build:prod 2>&1', $result);
