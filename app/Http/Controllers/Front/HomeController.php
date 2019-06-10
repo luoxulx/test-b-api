@@ -10,6 +10,11 @@ namespace App\Http\Controllers\Front;
 class HomeController extends FrontController
 {
 
+    public function status()
+    {
+        return 1;
+    }
+
     public function index()
     {
 

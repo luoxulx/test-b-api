@@ -13,6 +13,7 @@
 
 Route::group(['namespace' => 'Front'], function () {
     Route::get('/', 'HomeController@index');
+    Route::get('/status', 'HomeController@status');
 
     Route::get('blog', 'BlogController@index')->name('blog.index');
     Route::get('{slug}', 'BlogController@show')->name('blog.show');

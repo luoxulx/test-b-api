@@ -35,7 +35,7 @@ class WebhookController extends Controller
             // php-fpm 用户就是 lx，所以不用切换用户
             exec('cd /var/web/lnmpa.top/ && git pull 2>&1', $result);
 
-            return response()->json(['data'=>$result, 'message'=>'sha1 error']);
+            return response()->json(['data'=>$result, 'message'=>'sha1 error','code'=>-1]);
         }
     }
 
@@ -62,7 +62,7 @@ class WebhookController extends Controller
             // php-fpm 用户就是 lx，所以不用切换用户, 只要没有新增 package，就不需要 npm install
             exec('cd /var/web/14k-lnmpa-web/ && git pull && rm -rf dist/ && npm run build:prod 2>&1', $result);
 
-            return response()->json(['data'=>$result, 'message'=>'sha1 error']);
+            return response()->json(['data'=>$result, 'message'=>'sha1 error','code'=>-1]);
         }
     }
 }

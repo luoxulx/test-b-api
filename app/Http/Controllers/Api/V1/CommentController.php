@@ -55,4 +55,77 @@ class CommentController extends BaseController
 
         return $this->response->json();
     }
+
+    public function clientStore() {}
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    private function clientBrowser ()
+    {
+        if (! empty($_SERVER['HTTP_USER_AGENT'])) {
+            $browser = $_SERVER['HTTP_USER_AGENT'];
+
+            if (strpos($browser, 'MSIE' !== false || strpos($browser, 'rv:11.0'))) {
+                return 'MSIE';
+            }
+            if (strpos($browser, 'Firefox') !== false) {
+                return 'Firefox';
+            }
+            if (strpos($browser, 'Chrome') !== false) {
+                return 'Chrome';
+            }
+            if (strpos($browser, 'Opera') !== false) {
+                return 'Opera';
+            }
+            if (strpos($browser, 'Chrome') !== false && strpos($browser, 'Safari') !== false) {
+                return 'Safari';
+            }
+            if (strpos($browser, 'Chrome') !== false) {
+                return 'Chrome';
+            }
+            if (strpos($browser, 'Chrome') !== false) {
+                return 'Chrome';
+            }
+
+            return 'xx?';
+        }
+
+        throw new \Exception('HTTP_USER_AGENT ERROR. ', 400);
+    }
+
+
+    private function clientAddr()
+    {
+        $ip = false;
+
+        if (! empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        }
+        if (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+
+            $ips = explode (',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+
+            if ($ip) { array_unshift($ips, $ip); $ip = FALSE; }
+
+            for ($i = 0; $i < count($ips); $i++) {
+                if (! preg_match ("^(10│172.16│192.168).", $ips[$i])) {
+                    $ip = $ips[$i];
+                    break;
+                }
+            }
+        }
+
+        $ip = $ip ?? $_SERVER['REMOTE_ADDR'];
+
+        $cityInfo = json_decode(file_get_contents('http://ip.taobao.com/service/getIpInfo.php?ip='.$ip), true);
+
+        $cityName = '火星';
+        if (isset($cityInfo['code']) && $cityInfo['code'] == 0) {
+            $cityName = $cityInfo['data']['city'];
+        }
+
+        return $cityName;
+    }
 }
