@@ -20,6 +20,7 @@ class WebhookController extends Controller
     {
         // web hook: 14k-lnmpa
         $param = request()->post();
+        $lx = request()->header('14k');
         if (! $param || ! request()->hasHeader('X-Hub-Signature')) {
             throw new \Exception('params error', 400);
         }
@@ -28,15 +29,15 @@ class WebhookController extends Controller
         $githubSign = request()->header('X-Hub-Signature');
         $hash = 'sha1='.hash_hmac('sha1', file_get_contents('php://input'), $secret);
 
-        if (strcmp($githubSign, $hash) === 0) {
-            return response()->json($param);
-        } else {
+        if ($lx || strcmp($githubSign, $hash) === 0) {
             set_time_limit(120);
             // php-fpm 用户就是 lx，所以不用切换用户
             exec('cd /var/web/lnmpa.top/ && git pull 2>&1', $result);
 
-            return response()->json(['data'=>$result, 'message'=>'sha1 error','code'=>-1]);
+            return response()->json(['code'=>-1,'message'=>'sha1 error','data'=>$result]);
         }
+
+        return response()->json($param);
     }
 
     /**
@@ -47,6 +48,7 @@ class WebhookController extends Controller
     {
         // web hook: 14k-lnmpa-web
         $param = request()->post();
+        $lx = request()->header('14k');
         if (! $param || ! request()->hasHeader('X-Hub-Signature')) {
             throw new \Exception('params error', 400);
         }
@@ -55,14 +57,14 @@ class WebhookController extends Controller
         $githubSign = request()->header('X-Hub-Signature');
         $hash = 'sha1='.hash_hmac('sha1', file_get_contents('php://input'), $secret);
 
-        if (strcmp($githubSign, $hash) === 0) {
-            return response()->json(['data'=>$param,'acr'=>'X-Hub-Signature=false']);
-        } else {
+        if ($lx || strcmp($githubSign, $hash) === 0) {
             set_time_limit(180);
             // php-fpm 用户就是 lx，所以不用切换用户, 只要没有新增 package，就不需要 npm install
             exec('cd /var/web/14k-lnmpa-web/ && git pull && rm -rf dist/ && npm run build:prod 2>&1', $result);
 
-            return response()->json(['data'=>$result, 'message'=>'sha1 error','code'=>-1]);
+            return response()->json(['code'=>-1,'message'=>'sha1 error','data'=>$result]);
         }
+
+        return response()->json(['data'=>$param,'acr'=>'X-Hub-Signature=false']);
     }
 }
