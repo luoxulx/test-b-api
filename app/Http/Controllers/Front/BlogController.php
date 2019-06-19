@@ -8,8 +8,8 @@
 
 namespace App\Http\Controllers\Front;
 
-
 use App\Repositories\ArticleRepository;
+use Illuminate\Support\Facades\Validator;
 
 class BlogController extends FrontController
 {
@@ -19,19 +19,42 @@ class BlogController extends FrontController
     public function __construct(ArticleRepository $articleRepository)
     {
         $this->article = $articleRepository;
+
+        if (! cache('blog_archives')) {
+            $temp = $this->article->archives();
+            cache(['blog_archives' => $temp], 1440);
+        }
+        if (! cache('blog_archives_other_web')) {
+            $temp = config('app.14k.other_web');
+            cache(['blog_archives_other_web' => $temp], 1440);
+        }
     }
 
-    public function index()
+    public function index($month = null)
     {
-        $articles = $this->article->paginate();
+        if ($month !== null) {
+            $validator = Validator::make(['month'=>$month], [
+                'month' => 'date_format:"Y-m"',
+            ]);
+            if ($validator->fails()) {
+                // 格式不正确 置空
+                $month = null;
+            }
+        }
 
-        return view('front.blog.index', compact($articles));
+        $articles = $this->article->pageList($month);
+        $archives = cache('blog_archives');
+        $elsewhere = cache('blog_archives_other_web');
+
+        return view('front.blog.index', compact('articles', 'archives', 'elsewhere'));
     }
 
     public function show($slug)
     {
         $article = $this->article->getBySlug($slug);
+        $archives = cache('blog_archives');
+        $elsewhere = cache('blog_archives_other_web');
 
-        return view('front.blog.detail', compact($article));
+        return view('front.blog.detail', compact('article', 'archives', 'elsewhere'));
     }
 }

@@ -93,4 +93,33 @@ class ArticleRepository extends BaseRepository
 
     }
 
+    // front
+    public function archives()
+    {
+        $archives = $this->model->orderBy('published_at', 'desc')->groupBy('published_at')->select(['published_at'])->get();
+        $arg = [];
+        foreach ($archives as $key=>$item) {
+            $arg[$key]['timestamp'] = strtotime($item->published_at);
+            $arg[$key]['text'] = date('F Y', strtotime($item->published_at));
+        }
+
+        return $arg;
+    }
+
+    public function pageList($month = null)
+    {
+        $perPage = request()->get('per_page', 10);
+
+        $condition = [
+            'is_draft' => 0
+        ];
+        if ($month !== null) {
+            $list = $this->model->where($condition)->where('published_at', '>=', $month.'-01')->where('published_at', '<=', $month.'-31')->orderBy('updated_at', 'desc')->paginate($perPage);
+        } else {
+            $list = $this->model->orderBy('updated_at', 'desc')->paginate($perPage);
+        }
+
+        return $list;
+    }
+
 }

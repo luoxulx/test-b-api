@@ -3,6 +3,16 @@
 return [
 
     '14k' => [
+        'other_web' => [
+            'github' => 'https://github.com/luoxulx',
+            'google' => 'https://google.com.jp/luoxulx',
+            'google+' => 'https://google.com.jp/luoxulx',
+            'youtube' => 'https://youtube.com/luoxulx',
+            'facebook' => 'https://www.facebook.com/luoxulx',
+            'twitter' => 'https://www.twitter.com/luoxulx',
+            'instagram' => 'https://www.instagram.com/luoxulx',
+            'sina' => 'https://weibo.com/luoxulx',
+        ],
         'bing_uri' => env('APP_ENV') === 'production' ? 'https://bing.com/HPImageArchive.aspx' : 'https://cn.bing.com/HPImageArchive.aspx',
         'bing_host' => env('APP_ENV') === 'production' ? 'https://bing.com' : 'https://cn.bing.com',
         'bai_du_fy_id' => env('BAIDUFY_ID'),

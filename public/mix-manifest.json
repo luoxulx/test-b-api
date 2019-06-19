@@ -1,4 +1,6 @@
 {
+    "/js/b.js": "/js/b.js",
     "/js/default.js": "/js/default.js",
-    "/css/default.css": "/css/default.css"
+    "/css/default.css": "/css/default.css",
+    "/css/b.css": "/css/b.css"
 }
