@@ -25,8 +25,8 @@ class BlogController extends FrontController
             cache(['blog_archives' => $temp], 1440);
         }
         if (! cache('blog_archives_other_web')) {
-            $temp = config('app.14k.other_web');
-            cache(['blog_archives_other_web' => $temp], 1440);
+            $temp1 = config('app.14k.other_web');
+            cache(['blog_archives_other_web' => $temp1], 1440);
         }
     }
 
