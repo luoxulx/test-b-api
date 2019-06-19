@@ -13,3 +13,10 @@
 // webhook open api
 Route::post('/14k/pull', 'WebhookController@pull'); //webhooks
 Route::post('/14k/vue', 'WebhookController@buildVueCil'); //webhooks
+
+// Vultr 接口
+Route::group(['namespace'=>'Api\Vultr', 'prefix'=>'vultr'], function () {
+
+    Route::get('info', 'VultrController@info');
+    Route::get('app/list', 'VultrController@application');
+});

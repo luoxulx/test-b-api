@@ -11,12 +11,14 @@
 |
 */
 
-Route::group(['middleware' => 'validate.input'], function () {
+Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
     /** ---------- open api start---------- */
     Route::post('auth/login', 'AuthController@login')->name('api.auth.login');
+    Route::post('auth/tiny/token', 'AuthController@generateTinyToken')->name('api.auth.tiny.token');
 
     Route::get('open/bing/pictures', 'OpenController@pictures')->name('api.open.bing.pictures');
     Route::post('open/feedback', 'FeedbackController@store')->name('api.open.feedback');
+    Route::post('open/tiny/spellchecker', 'OpenController@spellChecker')->name('api.open.spellchecker');
 
     /** ---------- open api end---------- */
 
@@ -111,11 +113,11 @@ Route::group(['middleware' => 'validate.input'], function () {
 
         // test
         Route::get('system/logs', 'SystemLogController@index')->name('api.system.log.index');
-        Route::get('system/logs/{file}', 'SystemLogController@index')->name('api.system.log.file');
-        Route::get('system/logs/{file}/tail', 'SystemLogController@tail')->name('api.system.log.file.tail');
+        Route::get('system/logs/{file?}', 'SystemLogController@index')->where('file','[a-z-0-9\-.]+')->name('api.system.log.file');
+        Route::get('system/logs/{file}/tail', 'SystemLogController@tail')->where('file','[a-z-0-9\-.]+')->name('api.system.log.file.tail');
         // file upload
-        Route::post('file/upload', 'OpenController@upload')->name('api.file.upload');
-        Route::post('file/patch_upload', 'OpenController@patch_upload')->name('api.file.patch_upload');
+        Route::post('file/upload', 'FileController@upload')->name('api.file.upload');
+        Route::post('file/patch_upload', 'FileController@patchUpload')->name('api.file.patch_upload');
 
     });
 });

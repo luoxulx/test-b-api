@@ -1,5 +1,6 @@
 <template>
-  <form id="form-contact" :model="feedbackForm" class="clearfix ts-form ts-form-email">
+  <div>
+    <form id="form-contact" :model="feedbackForm" class="clearfix ts-form ts-form-email">
     <div class="row">
       <div class="col-md-6 col-sm-6">
         <div class="form-group">
@@ -27,6 +28,7 @@
     </div>
     <div class="form-contact-status"></div>
   </form>
+  </div>
 </template>
 
 <script>
@@ -56,29 +58,25 @@
           return false
         }
         if (!this.feedbackForm.content) {
-          console.log('content null')
+          alert('content null')
           return false
         }
-        return false
-        window.axios.post('/api/open/feedback', this.feedbackForm).then((response) => {
-          console.log(response)
-          this.feedbackForm.nickname = ''
-          this.feedbackForm.email = ''
-          this.feedbackForm.content = ''
+
+        window.axios.post('/api/v1/open/feedback', this.feedbackForm).then((response) => {
+          if (response.status === true) {
+            this.feedbackForm.nickname = ''
+            this.feedbackForm.email = ''
+            this.feedbackForm.content = ''
+            alert('successful')
+            return true
+          } else {
+            alert(response.message || response.debug)
+            return false
+          }
         }).catch((error) => {
+          alert('Client error')
           console.error(error)
-        })
-      },
-      getVerifyCodeBase64(config) {
-        var style = ''
-        if (config) {
-          style = config
-        }
-        window.axios.get('/captcha/api/'+style).then((response)=>{
-          this.verifyCodeBase64 = response.img
-          this.verifyCodeKey = response.key
-        }).catch((error)=>{
-          console.error(error)
+          return false
         })
       }
     }

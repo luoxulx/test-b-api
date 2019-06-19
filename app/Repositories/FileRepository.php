@@ -54,7 +54,7 @@ class FileRepository extends BaseRepository
      * @return bool
      * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $data = $this->getById($id);
         try {

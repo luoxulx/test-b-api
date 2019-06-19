@@ -9,9 +9,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 
-use App\Libraries\FileManager;
-use App\Repositories\FileRepository;
-use App\Transformers\FileTransformer;
+use App\Support\spellchecker\TinyMCESpellCheckerEngine;
 
 class OpenController extends BaseController
 {
@@ -19,26 +17,6 @@ class OpenController extends BaseController
     public function __construct()
     {
         parent::__construct();
-    }
-
-    public function upload(FileManager $fileManager, FileRepository $fileRepository)
-    {
-        $file = request()->file('file');
-        $dir = request()->post('dir', 'temp');
-
-        $data = $fileManager->store($file, $dir);
-
-        return $this->response->withCreated($fileRepository->create($data), new FileTransformer());
-    }
-
-    public function patch_upload(FileManager $fileManager, FileRepository $fileRepository)
-    {
-        $file = request()->file('file');
-        $dir = request()->post('dir', 'temp');
-
-        $data = $fileManager->patchStore($file, $dir);
-
-        return $this->response->json($data);
     }
 
     /**
@@ -80,5 +58,26 @@ class OpenController extends BaseController
         }
 
         return $this->response->json(['data'=>$response]);
+    }
+
+
+    public function spellChecker()
+    {
+        $tinymceSpellCheckerConfig = array(
+            "engine" => "enchant", // enchant, pspell
+
+            // Enchant options
+            "enchant_dicts_path" => "./dicts",
+
+            // PSpell options
+            "pspell.mode" => "fast",
+            "pspell.spelling" => "",
+            "pspell.jargon" => "",
+            "pspell.encoding" => ""
+        );
+
+        TinyMCESpellcheckerEngine::add("pspell", "TinyMCESpellCheckerPSpellEngine");
+        TinyMCESpellcheckerEngine::add("enchant", "TinyMCESpellCheckerEnchantEngine");
+        TinyMCESpellCheckerEngine::processRequest($tinymceSpellCheckerConfig);
     }
 }

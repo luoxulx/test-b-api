@@ -41,10 +41,11 @@ class Article extends BaseModel
     public function setTitleAttribute($title)
     {
         $title2 = $title;
+
         if (\strlen($title) !== mb_strlen($title)) {
             $title2 = (new BaiduTranslate()) ->translate($title, 'auto', 'en');
-
         }
+
         $this->attributes['title2'] = $title2;
         $this->attributes['title'] = $title;
     }

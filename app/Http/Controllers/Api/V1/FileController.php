@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-
+use App\Libraries\FileManager;
 use App\Repositories\FileRepository;
 use App\Transformers\FileTransformer;
 
@@ -33,5 +33,25 @@ class FileController extends BaseController
         $this->file->destroy($id);
 
         return $this->response->json();
+    }
+
+    public function upload(FileManager $fileManager, FileRepository $fileRepository)
+    {
+        $file = request()->file('file');
+        $dir = request()->post('dir', 'temp');
+
+        $data = $fileManager->store($file, $dir);
+
+        return $this->response->withCreated($fileRepository->create($data), new FileTransformer());
+    }
+
+    public function patchUpload(FileManager $fileManager, FileRepository $fileRepository)
+    {
+        $file = request()->file('file');
+        $dir = request()->post('dir', 'temp');
+
+        $data = $fileManager->patchStore($file, $dir);
+
+        return $this->response->json($data);
     }
 }

@@ -100,6 +100,9 @@ class Handler extends ExceptionHandler
             $response['code'] = $code;
             $response['message'] = $defaultMessage;
             $response['debug'] = $exception->getMessage() ?? $defaultMessage;
+            if (config('app.debug') === true) {
+                $response['line'] = $exception->getTrace()[0] ?? '';
+            }
 
             return response()->json($response, $code);
         }
