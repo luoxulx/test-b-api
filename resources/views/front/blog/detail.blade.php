@@ -1,4 +1,5 @@
 @extends('front.blog.layout')
+@section('meta_title', $article->title)
 @section('main')
     <div class="container">
         <header></header>
