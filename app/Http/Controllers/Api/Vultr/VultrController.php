@@ -79,7 +79,7 @@ class VultrController extends BaseController
     {
         $a = config('app.14k.other_web');
 
-        $this->response->json(['data'=>$a]);
+        return $this->response->json(['data'=>$a]);
         die;
         $uri = '/v1/baremetal/get_app_info';
 
