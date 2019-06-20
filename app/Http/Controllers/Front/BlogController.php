@@ -25,7 +25,17 @@ class BlogController extends FrontController
             cache(['blog_archives' => $temp], 1440);
         }
         if (! cache('blog_archives_other_web')) {
-            $temp1 = config('app.14k.other_web');
+            $temp2 = [
+                'github' => 'https://github.com/luoxulx',
+                'google' => 'https://google.com.jp/luoxulx',
+                'google+' => 'https://google.com.jp/luoxulx',
+                'youtube' => 'https://youtube.com/luoxulx',
+                'facebook' => 'https://www.facebook.com/luoxulx',
+                'twitter' => 'https://www.twitter.com/luoxulx',
+                'instagram' => 'https://www.instagram.com/luoxulx',
+                'sina' => 'https://weibo.com/luoxulx',
+            ];
+            $temp1 = config('app.14k.other_web', $temp2);
             cache(['blog_archives_other_web' => $temp1], 1440);
         }
     }
