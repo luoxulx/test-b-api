@@ -123,7 +123,7 @@ class ArticleRepository extends BaseRepository
         if ($month !== null) {
             $list = $this->model->where($condition)->where('published_at', '>=', $month.'-01')->where('published_at', '<=', $month.'-31')->orderBy('updated_at', 'desc')->paginate($perPage);
         } else {
-            $list = $this->model->orderBy('updated_at', 'desc')->paginate($perPage);
+            $list = $this->model->where($condition)->orderBy('updated_at', 'desc')->paginate($perPage);
         }
 
         return $list;
