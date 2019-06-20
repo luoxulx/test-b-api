@@ -17,7 +17,7 @@
                     <small class="margin-r-15">{{ $article->view_count }}</small>
                     <small class="margin-r-15">
                         @if($article->source)
-                            <cite>转自</cite><a href="{{ $article->source }}" target="_blank"><em>{{ $article->source }}</em></a>
+                            <cite>转自&nbsp;</cite><a href="{{ $article->source }}" target="_blank"><em>{{ $article->source }}</em></a>
                         @endif
                     </small>
                 </p>
