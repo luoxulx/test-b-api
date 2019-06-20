@@ -17,6 +17,11 @@ Route::post('/14k/vue', 'WebhookController@buildVueCil'); //webhooks
 // Vultr 接口
 Route::group(['namespace'=>'Api\Vultr', 'prefix'=>'vultr'], function () {
 
-    Route::get('info', 'VultrController@info');
-    Route::get('app/list', 'VultrController@application');
+    Route::get('account/info', 'VultrController@accountInfo');
+    Route::get('app/list', 'VultrController@applications');
+    Route::get('auth/info', 'VultrController@authInfo');
+    Route::get('backup/list', 'VultrController@backupList');
+    Route::get('baremetal/bandwidth', 'VultrController@bandwidth');
+    Route::get('baremetal/get_app_info', 'VultrController@getAppInfo');
+    Route::get('baremetal/list', 'VultrController@serverList');
 });
