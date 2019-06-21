@@ -16,7 +16,7 @@
                         <a href="https://www.instagram.com/luoxulx" target="_blank" class="mr-3"><i class="fab fa-instagram"></i></a>
                     </figure>
                     <h1>Frankenstein</h1>
-                    <h1 class="ts-bubble-border">
+                    <h2 class="ts-bubble-border">
                         <span class="ts-title-rotate">
                             <span class="active">World of Warcraft, For Azeroth</span>
                             <span>Hacker</span>
@@ -24,7 +24,7 @@
                             <span>C++ & Python Developer</span>
                             <span>Web & Vue</span>
                         </span>
-                    </h1>
+                    </h2>
                 </div>
             </div>
             <a href="#my-services" class="ts-btn-effect position-absolute ts-bottom__0 ts-left__0 ts-scroll ml-3 mb-3"><span class="ts-visible ts-circle__sm rounded-0 ts-bg-primary"><i class="fa fa-arrow-down text-white"></i></span><span class="ts-hidden ts-circle__sm rounded-0"><i class="fa fa-arrow-down text-white"></i></span></a>
