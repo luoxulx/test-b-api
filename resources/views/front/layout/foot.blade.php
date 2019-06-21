@@ -4,7 +4,7 @@
             <div class="ts-title text-center"><h2 class="ts-bubble-border">Get In Touch</h2></div>
             <div class="row ts-xs-text-center ">
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp">
-                    <img src="/images/pic//icon-pin.png" class="mb-4" alt="">
+                    <img src="/images/pic/icon-pin.png" class="mb-4" alt="">
                     <h5>Address</h5>
                     <div class="ts-opacity__50">
                         <figure class="mb-0">In Japan</figure>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".1s">
-                    <img src="/images/pic//icon-phone-02.png" class="mb-4" alt="">
+                    <img src="/images/pic/icon-phone-02.png" class="mb-4" alt="">
                     <h5>Phone</h5>
                     <div class="ts-opacity__50">
                         <figure class="mb-0">0081-9012345678</figure>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".2s">
-                    <img src="/images/pic//icon-envelope.png" class="mb-4" alt="">
+                    <img src="/images/pic/icon-envelope.png" class="mb-4" alt="">
                     <h5>Email</h5>
                     <div class="ts-opacity__50">
                         <figure class="mb-0">dr_14k@yeah.net</figure>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".3s">
-                    <img src="/images/pic//icon-talk-bubble.png" class="mb-4" alt=""><h5>Facebook Chat</h5>
+                    <img src="/images/pic/icon-talk-bubble.png" class="mb-4" alt=""><h5>Facebook Chat</h5>
                     <div class="ts-opacity__50">
                         <figure>Frankenstein</figure>
                     </div>

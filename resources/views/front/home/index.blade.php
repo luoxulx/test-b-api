@@ -21,7 +21,7 @@
                             <span class="active">World of Warcraft, For Azeroth</span>
                             <span>Hacker</span>
                             <span>Go | PHP Laravel</span>
-                            <span>C++ & Python Developer</span>
+                            <span>C & Python Developer</span>
                             <span>Web & Vue</span>
                         </span>
                     </h2>
@@ -196,15 +196,15 @@
                             <figure class="ts-progress-value"></figure>
                             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="progress" data-progress-width="80%"><h5 class="ts-progress-title">Web Javascript Vue</h5>
+                        <div class="progress" data-progress-width="80%"><h5 class="ts-progress-title">C&nbsp; Bash Hacker</h5>
                             <figure class="ts-progress-value"></figure>
                             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="progress" data-progress-width="65%"><h5 class="ts-progress-title">Python Go</h5>
+                        <div class="progress" data-progress-width="50%"><h5 class="ts-progress-title">Web Javascript Vue</h5>
                             <figure class="ts-progress-value"></figure>
                             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="progress" data-progress-width="40%"><h5 class="ts-progress-title">C++ Bash Hacker</h5>
+                        <div class="progress" data-progress-width="45%"><h5 class="ts-progress-title">Python Go</h5>
                             <figure class="ts-progress-value"></figure>
                             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
