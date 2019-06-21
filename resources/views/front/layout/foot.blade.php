@@ -36,7 +36,8 @@
             </div>
             <div class="pt-5">
                 <div class="row">
-                    <div class="col-md-4"><h3>Let’s Connect</h3>
+                    <div class="col-md-4">
+                        <h3>Let’s Connect</h3>
                         <div class="ts-column-count-sm-2">
                             <a href="https://github.com/luoxulx" target="_blank" class="mb-3 d-flex text-white ts-align__vertical" target="_blank">
                                 <span class="ts-circle__xs border border-white ts-border-light mr-4"><i class="fab fa-github"></i></span>
@@ -64,9 +65,16 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <h3>LEAVE FEEDBACK</h3>
                         <feedback-component></feedback-component>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="ts-column-count-sm-2">
+                            <h3>Links</h3>
+                            <small><a href="https://linux.cn" target="_blank" title="Linux 中国◆开源社区" class="mb-3 d-flex text-white ts-align__vertical"><span>Linux中国</span></a></small>
+                            <small><a href="https://mkblog.cn/" target="_blank" title="孟坤博客 | 每天进步一点点" class="mb-3 d-flex text-white ts-align__vertical"><span>孟坤博客</span></a></small>
+                        </div>
                     </div>
                 </div>
             </div>
