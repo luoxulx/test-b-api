@@ -8,6 +8,7 @@
 /vendor
 .env
 .phpunit.result.cache
+.tiny.key
 composer.phar
 Homestead.json
 Homestead.yaml

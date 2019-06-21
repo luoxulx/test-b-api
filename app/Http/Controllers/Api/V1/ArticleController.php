@@ -66,4 +66,13 @@ class ArticleController extends BaseController
 
         return $this->response->json();
     }
+
+    public function draft($id)
+    {
+        $draft = request()->json('draft');
+
+        $this->article->draft($id, $draft);
+
+        return $this->response->json();
+    }
 }

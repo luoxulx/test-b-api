@@ -38,6 +38,14 @@ class ArticleRepository extends BaseRepository
         return $article;
     }
 
+    public function draft($id, $draft)
+    {
+        $this->model = $this->getById($id);
+        $this->model->fill(['is_draft' => $draft]);
+
+        return $this->model->save();
+    }
+
     /**
      * @param $input
      * @return mixed

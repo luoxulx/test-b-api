@@ -37,6 +37,7 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
             'parameters' => ['article' => 'id']
         ]);
         Route::delete('article/batch', 'ArticleController@batch')->name('api.article.batch');
+        Route::put('article/draft/{id}', 'ArticleController@draft')->name('api.article.draft');
         /** ---------- article end---------- */
 
         // category
