@@ -26,7 +26,7 @@ class CreateArticlesTable extends Migration
             $table->mediumText('description')->nullable()->comment('描述');
             $table->string('thumbnail', 225)->nullable()->comment('缩略图');
             $table->longText('content')->nullable()->comment('主体内容json{raw,html}');
-            $table->dateTime('published_at')->nullable()->comment('发布时间');
+            $table->timestamp('published_at')->nullable()->comment('发布时间');
 
             $table->timestamps();
             $table->softDeletes();

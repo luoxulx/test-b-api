@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
                 'is_admin' => 1,
                 'introduction' => 'xxx',
                 'avatar' => 'https://www.lnmpa.top/images/pic/default-avatar.jpg',
-                'password' => 'aaaaaa'
+                'password' => \Illuminate\Support\Facades\Hash::make('aaaaaa'),
+                'created_at' => \Illuminate\Support\Carbon::now(),
+                'updated_at' => \Illuminate\Support\Carbon::now()
             ]
         ];
         \App\Models\User::insert($users);
