@@ -72,8 +72,11 @@
                     <div class="col-md-1">
                         <div class="ts-column-count-sm-2">
                             <h3>Links</h3>
-                            <small><a href="https://linux.cn" target="_blank" title="Linux 中国◆开源社区" class="mb-3 d-flex text-white ts-align__vertical"><span>Linux中国</span></a></small>
-                            <small><a href="https://mkblog.cn/" target="_blank" title="孟坤博客 | 每天进步一点点" class="mb-3 d-flex text-white ts-align__vertical"><span>孟坤博客</span></a></small>
+                            @forelse($links as $item)
+                                <small><a href="{{ $item->url }}" target="_blank" title="{{ $item->desc }}" class="mb-3 d-flex text-white ts-align__vertical"><span class="span-overflow">{{ $item->name }}</span></a></small>
+                            @empty
+                                <small></small>
+                            @endforelse
                         </div>
                     </div>
                 </div>

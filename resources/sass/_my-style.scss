@@ -2486,3 +2486,7 @@ select::-ms-expand {
     left: 2.5rem;
   }
 }
+.span-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+}

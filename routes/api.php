@@ -14,7 +14,7 @@
 Route::post('/14k/pull', 'WebhookController@pull'); //webhooks
 Route::post('/14k/vue', 'WebhookController@buildVueCil'); //webhooks
 
-// Vultr 接口
+// Vultr 接口: 仅指定 IP 可调用
 Route::group(['namespace'=>'Api\Vultr', 'prefix'=>'vultr'], function () {
 
     Route::get('account/info', 'VultrController@accountInfo');

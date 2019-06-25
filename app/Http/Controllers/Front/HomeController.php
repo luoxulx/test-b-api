@@ -7,19 +7,22 @@
  */
 namespace App\Http\Controllers\Front;
 
+use App\Repositories\LinkRepository;
+
 class HomeController extends FrontController
 {
 
-    public function status()
-    {
-        return 1;
-    }
-
-    public function index()
+    public function index(LinkRepository $linkRepository)
     {
 
         $bingPic = cache('home_bing_pic_8_num');
         $allPics = cache('all_info_of_bing_pic');
+        $links = cache('home_foot_links');
+
+        if (! $links) {
+            $links = $linkRepository->all(['url','name','desc']);
+            cache(['home_foot_links' => $links], 1440);
+        }
 
         if (! $bingPic) {
             // n，必要参数。这是输出信息的数量。比如n=1，即为1条，以此类推，至多输出8条。
@@ -51,6 +54,6 @@ class HomeController extends FrontController
         }
         shuffle($bingPic);
 
-        return view('front.home.index', ['bingPic'=>$bingPic, 'allPics'=>$allPics]);
+        return view('front.home.index', ['bingPic'=>$bingPic, 'allPics'=>$allPics, 'links'=>$links]);
     }
 }

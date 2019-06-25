@@ -96,6 +96,19 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
             'parameters' => ['video' => 'id']
         ]);
 
+        // links
+        Route::resource('link', 'LinkController', [
+            'name' => [
+                'index' => 'api.link.index',
+                'show' => 'api.link.show',
+                'store' => 'api.link.store',
+                'update' => 'api.link.update',
+                'destroy' => 'api.link.destroy',
+            ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['link' => 'id']
+        ]);
+
         // user
         Route::resource('user', 'UserController', [
             'name' => [
