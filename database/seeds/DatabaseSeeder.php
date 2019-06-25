@@ -24,5 +24,24 @@ class DatabaseSeeder extends Seeder
             ]
         ];
         \App\Models\User::insert($users);
+
+        \App\Models\Link::truncate();
+        $links = [
+            [
+                'name' => 'Linux中国',
+                'url' => 'https://linux.cn',
+                'desc' => 'Linux 中国◆开源社区',
+                'created_at' => \Illuminate\Support\Carbon::now(),
+                'updated_at' => \Illuminate\Support\Carbon::now()
+            ],
+            [
+                'name' => '孟坤博客',
+                'url' => 'https://mkblog.cn',
+                'desc' => '孟坤博客 | 每天进步一点点',
+                'created_at' => \Illuminate\Support\Carbon::now(),
+                'updated_at' => \Illuminate\Support\Carbon::now()
+            ]
+        ];
+        \App\Models\Link::insert($links);
     }
 }
