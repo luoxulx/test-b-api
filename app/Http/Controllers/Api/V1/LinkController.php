@@ -36,6 +36,7 @@ class LinkController extends BaseController
     public function store()
     {
         $param = request()->all();
+        cache()->forget('home_foot_links');
 
         return $this->response->withCreated($this->link->create($param), new LinkTransformer());
     }
@@ -43,6 +44,7 @@ class LinkController extends BaseController
     public function update($id)
     {
         $param = request()->all();
+        cache()->forget('home_foot_links');
 
         $this->link->update($id, $param);
 

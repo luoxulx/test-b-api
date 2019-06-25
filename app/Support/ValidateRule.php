@@ -75,6 +75,14 @@ class ValidateRule
                 'nickname' => 'required|string|max:32',
                 'email' => 'required|email|max:64',
                 'content' => 'required|string',
+            ],
+            'link.store' => [
+                'url'=>'required|string|url|unique:links,url',
+                'name'=>'required|string|unique:links,name',
+            ],
+            'link.update' => [
+                'url'=>'required|string|url|unique:links,url,'.$id,
+                'name'=>'required|string|unique:links,name,'.$id,
             ]
         ];
 
