@@ -1,4 +1,5 @@
-<?php
+<?php /** @noinspection PhpParamsInspection */
+
 /**
  * Created by PhpStorm.
  * User: luoxulx
@@ -8,8 +9,9 @@
 
 namespace App\Libraries;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileManager
@@ -26,6 +28,7 @@ class FileManager
     }
 
     /**
+     * 普通上传，<4M
      * Handle the file upload.
      *
      * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
@@ -34,7 +37,6 @@ class FileManager
      *
      * @return array|bool
      */
-
     public function store(UploadedFile $file, $dir = 'temp', $name = '')
     {
         $mime = $file->getMimeType();
@@ -60,55 +62,40 @@ class FileManager
         ];
     }
 
-    public function patchStore(UploadedFile $file, $dir = 'temp')
+
+    /**
+     * @param string $dir
+     * @param bool $resize
+     * @return array
+     */
+    public function storeByIntervention($dir = 'temp', $resize = false)
     {
-        $dirDate = '/' . date('Y') . '/' . date('m');
-        $dir .= $dirDate;
+        $file = request()->file('file');
+        $picName = $file->getClientOriginalName();
+        $dirData = '/' . date('Y') . '/' . date('m') . '/';
+        $path = $dir . $dirData . md5(time().$picName).'.png';
 
-        $chunk = intval(request()->post('chunk', 0));
-        $chunks = intval(request()->post('chunks', 0));
+        $img = Image::make($file);
 
-        $originalName = $file->getClientOriginalName();
-        $ext = $file->getClientOriginalExtension();
-
-        $realPath = $file->getRealPath(); //临时目录
-        $saved_name = '';
-
-        if ($chunk === $chunks) {
-            $saved_name = md5('saved_' . date('Ymd-His')) . ".$ext";
-
-            $this->disk->put($dir . $saved_name, file_get_contents($realPath)); // 直接保存
-
-        } else {
-            $filename = md5($originalName).'-'.($chunk+1).'.tmp';
-            $this->disk->put('patchPath'.$filename, file_get_contents($realPath));
-
-            if (($chunk + 1) === $chunks) {
-                $saved_name = md5('saved_'. date('Ymd-His')) . ".$ext";
-                $file_names = storage_path('app/patchPath') . $saved_name;
-
-                $fp = fopen($file_names,'ab');
-
-                for($i=0; $i<$chunks; $i++){
-                    $tmp_files = storage_path('app/patchPath/') . md5($originalName).'-'.($i+1).'.tmp';
-                    $handle = fopen($tmp_files,'rb');
-                    fwrite($fp, fread($handle, filesize($tmp_files)));
-                    fclose($handle);
-                    unlink($tmp_files);
-                }
-                //关闭句柄
-                fclose($fp);
-            }
+        $img->insert(public_path('watermark/14k-water.png'), 'bottom-right', 5, 5); //Victor Frankenstein
+        if ($resize === true) {
+            $img->resize(640, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
         }
 
+        $img->encode('png', 85);
+
+        $this->disk->put($path, $img);
+
         return [
-            'filename' => $saved_name,
-            'original_name' => $originalName,
+            'filename' => md5(time().$picName).'.png',
+            'original_name' => $file->getClientOriginalName(),
             'mime' => $file->getMimeType(),
             'size' => $this->formatSize($file->getSize()),
-            'real_path' => $saved_name,
-            'relative_url' => 'storage/' . $saved_name,
-            'url' => asset('storage/' . $saved_name),
+            'real_path' => $dir . $dirData,
+            'relative_url' => 'storage/' . $dir . $dirData,
+            'url' => asset('storage/'.$path),
         ];
     }
 

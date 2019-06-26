@@ -18,7 +18,6 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
 
     Route::get('open/bing/pictures', 'OpenController@pictures')->name('api.open.bing.pictures');
     Route::post('open/feedback', 'FeedbackController@store')->name('api.open.feedback');
-    Route::post('open/tiny/spellchecker', 'OpenController@spellChecker')->name('api.open.spellchecker');
 
     /** ---------- open api end---------- */
 
@@ -131,7 +130,10 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
         Route::get('system/logs/{file}/tail', 'SystemLogController@tail')->where('file','[a-z-0-9\-.]+')->name('api.system.log.file.tail');
         // file upload
         Route::post('file/upload', 'FileController@upload')->name('api.file.upload');
-        Route::post('file/patch_upload', 'FileController@patchUpload')->name('api.file.patch_upload');
+        /* 所有的图片上传都使用 `api.pic.upload`, 需要压缩的传参数`resize(bool)` (页面缩略图都需要压缩，详情页不用压缩)*/
+        Route::post('pic/upload', 'FileController@resizeUpload')->name('api.pic.upload');
+        /* --- */
+
 
     });
 });
