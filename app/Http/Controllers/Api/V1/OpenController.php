@@ -9,8 +9,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 
-use App\Support\spellchecker\TinyMCESpellCheckerEngine;
-
 class OpenController extends BaseController
 {
 
@@ -58,26 +56,5 @@ class OpenController extends BaseController
         }
 
         return $this->response->json(['data'=>$response]);
-    }
-
-
-    public function spellChecker()
-    {
-        $tinymceSpellCheckerConfig = array(
-            "engine" => "enchant", // enchant, pspell
-
-            // Enchant options
-            "enchant_dicts_path" => "./dicts",
-
-            // PSpell options
-            "pspell.mode" => "fast",
-            "pspell.spelling" => "",
-            "pspell.jargon" => "",
-            "pspell.encoding" => ""
-        );
-
-        TinyMCESpellcheckerEngine::add("pspell", "TinyMCESpellCheckerPSpellEngine");
-        TinyMCESpellcheckerEngine::add("enchant", "TinyMCESpellCheckerEnchantEngine");
-        TinyMCESpellCheckerEngine::processRequest($tinymceSpellCheckerConfig);
     }
 }
