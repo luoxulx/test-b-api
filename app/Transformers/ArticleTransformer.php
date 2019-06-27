@@ -26,6 +26,7 @@ class ArticleTransformer extends TransformerAbstract
         $result['en'] = $article->en()->first(['id','article_id','title','source','description','content']);
         $result['category_name'] = $article->category()->value('name');
         $result['user_name'] = $article->user()->value('name');
+        $result['tags'] = $article->tags()->select(['id','name'])->get();
 
         return $result;
     }
