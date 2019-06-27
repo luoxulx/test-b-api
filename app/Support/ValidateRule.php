@@ -18,11 +18,11 @@ class ValidateRule
                 'n' => 'integer|min:1|max:8',
                 'idx' => 'integer|min:-1|max:16'
             ],
-            'open.upload' => [
+            'file.upload' => [
                 'file' => 'required|file',
                 'dir' => 'required|string'
             ],
-            'open.patch_upload' => [
+            'file.resizeUpload' => [
                 'file' => 'required|file',
                 'dir' => 'required|string'
             ],

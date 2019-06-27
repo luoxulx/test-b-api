@@ -90,7 +90,7 @@ class ArticleRepository extends BaseRepository
             $this->model = $this->getById($id);
             $this->model->fill($input);
 
-            if (isset($input['tags'])) {
+            if (isset($input['tags']) && !empty($input['tags'])) {
                 $this->model->tags()->sync($input['tags']);
             }
             if (isset($input['en'])) {

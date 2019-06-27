@@ -64,6 +64,7 @@ class FileManager
 
 
     /**
+     * 仅上传图片
      * @param string $dir
      * @param bool $resize
      * @return array
@@ -113,7 +114,7 @@ class FileManager
     /**
      * Delete the file.
      *
-     * @param $path&$name
+     * @param mixed $path&$name
      * @return mixed
      */
     public function deleteFile($path)

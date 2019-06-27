@@ -11,6 +11,7 @@ namespace App\Repositories;
 
 use App\Libraries\FileManager;
 use App\Models\File;
+use Illuminate\Support\Facades\DB;
 
 class FileRepository extends BaseRepository
 {
@@ -50,6 +51,7 @@ class FileRepository extends BaseRepository
     }
 
     /**
+     * 仅删除图片
      * @param int $id
      * @return bool
      * @throws \Exception
@@ -58,6 +60,10 @@ class FileRepository extends BaseRepository
     {
         $data = $this->getById($id);
         try {
+            $temp = DB::table('articles')->where(['thumbnail' => $data->url])->first(['id', 'title']);
+            if ($temp !== null) {
+                throw new \Exception('[id: '.$temp->id.', Title: '.$temp->title.'使用中], 不能删除! ');
+            }
             $this->fileManager->deleteFile($data->real_path);
             $data->delete();
         }catch (\Exception $exception) {

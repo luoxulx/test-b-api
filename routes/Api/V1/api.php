@@ -129,7 +129,10 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
         Route::get('system/logs/{file?}', 'SystemLogController@index')->where('file','[a-z-0-9\-.]+')->name('api.system.log.file');
         Route::get('system/logs/{file}/tail', 'SystemLogController@tail')->where('file','[a-z-0-9\-.]+')->name('api.system.log.file.tail');
         // file upload
+        Route::get('file/list', 'FileController@index')->name('api.file.index');
         Route::post('file/upload', 'FileController@upload')->name('api.file.upload');
+        Route::delete('pic/{id}', 'FileController@destroy')->name('api.file.destroy');
+        Route::delete('pic/remove', 'FileController@batch')->name('api.file.deletes');
         /* 所有的图片上传都使用 `api.pic.upload`, 需要压缩的传参数`resize(bool)` (页面缩略图都需要压缩，详情页不用压缩)*/
         Route::post('pic/upload', 'FileController@resizeUpload')->name('api.pic.upload');
         /* --- */

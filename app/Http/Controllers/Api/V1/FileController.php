@@ -30,13 +30,6 @@ class FileController extends BaseController
         return $this->response->collection($this->file->paginate(), new FileTransformer());
     }
 
-    public function destroy(int $id)
-    {
-        $this->file->destroy($id);
-
-        return $this->response->json();
-    }
-
     // 普通上传
     public function upload()
     {
@@ -57,5 +50,23 @@ class FileController extends BaseController
         $data = $this->fileManager->storeByIntervention($dir, $resize);
 
         return $this->response->withCreated($this->file->create($data), new FileTransformer());
+    }
+
+    // 仅删除图片 api: /api/v1/pic/{id}
+    public function destroy($id)
+    {
+        $this->file->destroy($id);
+
+        return $this->response->json();
+    }
+
+    // api: /api/v1/pic/remove
+    public function batch()
+    {
+        $path = request()->all('path');
+
+        $res = $this->fileManager->deleteFile($path);
+
+        return $this->response->json(['result'=>$res]);
     }
 }
