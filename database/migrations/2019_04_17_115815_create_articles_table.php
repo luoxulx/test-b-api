@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->tinyInteger('category_id')->unsigned()->nullable(false);
             $table->integer('user_id', false, true)->nullable(false);
             $table->tinyInteger('is_draft', false, true)->default(0)->comment('是否草稿');
-            $table->integer('view_count', false, true)->default(0)->comment('点击查看计数');
+            $table->integer('view_count', false, true)->default(17)->comment('点击查看计数');
             $table->string('title', 225)->nullable(false)->comment('title');
             $table->string('title2', 225)->nullable()->comment('title-临时字段');
             $table->string('slug')->unique()->nullable(false)->index()->comment('url slug for SEO');

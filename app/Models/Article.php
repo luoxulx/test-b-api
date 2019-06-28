@@ -38,6 +38,7 @@ class Article extends BaseModel
         $value ? $this->attributes['published_at'] = $value : $this->attributes['published_at'] = date('Y-m-d H:i:s');
     }
 
+    // 为了方便将中文=>slug，需要 title2 翻译下，做个转换
     public function setTitleAttribute($title)
     {
         $title2 = $title;

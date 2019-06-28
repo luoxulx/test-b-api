@@ -23,7 +23,7 @@ class ArticleRepository extends BaseRepository
     {
         $perPage = request()->get('per_page', 10);
 
-        return $this->model->orderBy('updated_at', 'desc')->select(['id','category_id','user_id','is_draft','view_count','title','source','description','thumbnail','updated_at'])->paginate($perPage);
+        return $this->model->orderBy('updated_at', 'desc')->select(['id','category_id','user_id','is_draft','title','source','description','slug','updated_at'])->paginate($perPage);
     }
 
     public function getBySlug($slug)
@@ -62,6 +62,7 @@ class ArticleRepository extends BaseRepository
             if (! isset($input['tags'])) {
                 $input['tags'] = [];
             }
+            // TODO 默认值 en
             if (! isset($input['en'])) {
                 $input['en'] = [];
             }

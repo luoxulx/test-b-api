@@ -27,6 +27,16 @@ class ArticleTransformer extends TransformerAbstract
         $result['category_name'] = $article->category()->value('name');
         $result['user_name'] = $article->user()->value('name');
 
+        $temp = $article->tags()->select(['id'])->get();
+        $tags = [];
+        if ($temp) {
+            foreach ($temp as $item) {
+                $tags[] = $item->id;
+            }
+        }
+
+        $result['tags'] = $tags;
+
         return $result;
     }
 
