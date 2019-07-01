@@ -8,8 +8,6 @@
 
 namespace App\Repositories;
 
-
-use App\Libraries\FileManager;
 use App\Models\File;
 use Illuminate\Support\Facades\DB;
 
@@ -18,10 +16,9 @@ class FileRepository extends BaseRepository
 
     protected $fileManager;
 
-    public function __construct(File $file, FileManager $fileManager)
+    public function __construct(File $file)
     {
         $this->model = $file;
-        $this->fileManager = $fileManager;
     }
 
     /**
@@ -35,7 +32,6 @@ class FileRepository extends BaseRepository
         try {
             $this->model->save();
         }catch (\Exception $exception) {
-            $this->fileManager->deleteFile($input['real_path']);
 
             throw new \Exception($exception->getMessage());
         }
@@ -64,7 +60,6 @@ class FileRepository extends BaseRepository
             if ($temp !== null) {
                 throw new \Exception('[id: '.$temp->id.', Title: '.$temp->title.'使用中], 不能删除! ');
             }
-            $this->fileManager->deleteFile($data->real_path);
             $data->delete();
         }catch (\Exception $exception) {
             throw new \Exception($exception->getMessage());

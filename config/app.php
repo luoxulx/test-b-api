@@ -18,6 +18,8 @@ return [
         'bai_du_fy_id' => env('BAIDUFY_ID'),
         'bai_du_fy_key' => env('BAIDUFY_KEY'),
         'vultr_api_key' => env('VULTR_API_KEY'),
+        'qn_access_key' => env('QN_AK'),
+        'qn_secret_key' => env('QN_SK'),
     ],
 
     /*

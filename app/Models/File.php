@@ -15,12 +15,11 @@ class File extends Model
 {
 
     protected $fillable = [
-        'filename',
+        'path',
         'original_name',
-        'mime',
         'size',
-        'real_path',
-        'relative_url',
+        'mime',
+        'hash',
         'url'
     ];
 }

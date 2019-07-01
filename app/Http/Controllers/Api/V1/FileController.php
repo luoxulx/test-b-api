@@ -8,21 +8,21 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Libraries\FileManager;
 use App\Repositories\FileRepository;
+use App\Support\QiniuStorage;
 use App\Transformers\FileTransformer;
 
 class FileController extends BaseController
 {
 
     protected $file;
-    protected $fileManager;
+    protected $qiniu;
 
-    public function __construct(FileRepository $fileRepository, FileManager $fileManager)
+    public function __construct(FileRepository $fileRepository, QiniuStorage $qiniuStorage)
     {
         parent::__construct();
         $this->file = $fileRepository;
-        $this->fileManager = $fileManager;
+        $this->qiniu = $qiniuStorage;
     }
 
     public function index()
@@ -30,43 +30,34 @@ class FileController extends BaseController
         return $this->response->collection($this->file->paginate(), new FileTransformer());
     }
 
-    // 普通上传
-    public function upload()
+    public function uploadToken()
     {
-        $file = request()->file('file');
-        $dir = request()->post('dir', 'temp');
+        $key = request()->get('key');
+        if ($key !== null) {
+            $key .= '/'.date('Y').'/'.date('m').'/'.md5(uniqid().time()).'.png';
+        }
 
-        $data = $this->fileManager->store($file, $dir);
+        $data = [
+            'token' => $this->qiniu->uploadToken($key),
+            'key' => $key,
+            'uri' => 'https://upload-na0.qiniup.com'
+        ];
+        return $this->response->json(['data' => $data]);
+    }
+
+    public function saveFileInfo()
+    {
+        $data = request()->all();
 
         return $this->response->withCreated($this->file->create($data), new FileTransformer());
     }
 
-    // 扩展包，上传 压缩 水印
-    public function resizeUpload()
+    public function destory()
     {
-        $dir = request()->post('dir', 'temp');
-        $resize = boolval(request()->post('resize', false));
+        $key = request()->post('key');
 
-        $data = $this->fileManager->storeByIntervention($dir, $resize);
+        $res = $this->qiniu->delete($key);
 
-        return $this->response->withCreated($this->file->create($data), new FileTransformer());
-    }
-
-    // 仅删除图片 api: /api/v1/pic/{id}
-    public function destroy($id)
-    {
-        $this->file->destroy($id);
-
-        return $this->response->json();
-    }
-
-    // api: /api/v1/pic/remove
-    public function batch()
-    {
-        $path = request()->all('path');
-
-        $res = $this->fileManager->deleteFile($path);
-
-        return $this->response->json(['result'=>$res]);
+        return $this->response->json(['data'=>$res]);
     }
 }
