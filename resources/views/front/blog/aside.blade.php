@@ -11,7 +11,7 @@
     <ol class="list-unstyled mb-0">
         <li><a href="{{route('blog.index')}}">Home</a></li>
         @forelse($archives as $month)
-        <li><a href="{{ route('blog.index', ['month'=>date('Y-m', $month['timestamp'])]) }}">{{ $month['text'] }}</a></li>
+        <li><a href="{{ route('blog.index', ['month'=>$month['date']]) }}">{{ $month['text'] }}</a></li>
         @empty
             <li><a href="">null</a></li>
         @endforelse

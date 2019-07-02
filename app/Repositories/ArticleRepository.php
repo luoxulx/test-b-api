@@ -115,11 +115,11 @@ class ArticleRepository extends BaseRepository
         $archives = $this->model->orderBy('published_at', 'desc')->groupBy('published_at')->select(['published_at'])->get();
         $arg = [];
         foreach ($archives as $key=>$item) {
-            $arg[$key]['timestamp'] = strtotime($item->published_at);
+            $arg[$key]['date'] = date('Y-m', strtotime($item->published_at));
             $arg[$key]['text'] = date('F Y', strtotime($item->published_at));
         }
 
-        return $arg;
+        return array_unique($arg, SORT_REGULAR);
     }
 
     public function pageList($month = null)
