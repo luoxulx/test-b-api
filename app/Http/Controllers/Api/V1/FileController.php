@@ -30,11 +30,20 @@ class FileController extends BaseController
         return $this->response->collection($this->file->paginate(), new FileTransformer());
     }
 
+    /**
+     *  key(required): path name
+     *  name(required): origin_name
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function uploadToken()
     {
         $key = request()->get('key');
+        $originName = request()->get('original_name');
+        $ext = substr(strrchr($originName,'.'),1);
+        $newName = md5(uniqid('14k', true).time().$originName).'.'.$ext;
+
         if ($key !== null) {
-            $key .= '/'.date('Y').'/'.date('m').'/'.md5(uniqid().time()).'.png';
+            $key .= '/'.date('Y').'/'.date('m').'/'.$newName;
         }
 
         $data = [

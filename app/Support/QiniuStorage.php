@@ -31,6 +31,10 @@ class QiniuStorage
         $this->auth = new Auth($this->accessKey, $this->secretKey);
     }
 
+    /**
+     * @param null $key /目录名/文件名
+     * @return string
+     */
     public function uploadToken($key = null)
     {
         return $this->auth->uploadToken($this->bucket, $key, $this->expires);

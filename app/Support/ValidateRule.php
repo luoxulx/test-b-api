@@ -18,13 +18,17 @@ class ValidateRule
                 'n' => 'integer|min:1|max:8',
                 'idx' => 'integer|min:-1|max:16'
             ],
-            'file.upload' => [
-                'file' => 'required|file',
-                'dir' => 'required|string'
+            'file.uploadToken' => [
+                'key' => 'required|string',
+                'original_name' => 'required|string'
             ],
-            'file.resizeUpload' => [
-                'file' => 'required|file',
-                'dir' => 'required|string'
+            'file.saveFileInfo' => [
+                'hash' => 'required|string',
+                'mime' => 'required|string',
+                'original_name' => 'required|string',
+                'path' => 'required|string',
+                'size' => 'required|string',
+                'url' => 'required|string',
             ],
             'user.store' => [
                 'name' => 'required|string',
