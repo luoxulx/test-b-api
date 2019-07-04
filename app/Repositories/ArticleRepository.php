@@ -63,9 +63,19 @@ class ArticleRepository extends BaseRepository
                 $input['tags'] = [];
             }
             // TODO 默认值 en
-            if (! isset($input['en'])) {
-                $input['en'] = [];
+            if (!isset($input['en']['title']) || empty($input['en']['title'])) {
+                $input['en']['title'] = $input['title'];
             }
+            if (!isset($input['en']['source']) || empty($input['en']['source'])) {
+                $input['en']['source'] = $input['source'];
+            }
+            if (!isset($input['en']['description']) || empty($input['en']['description'])) {
+                $input['en']['description'] = $input['description'];
+            }
+            if (!isset($input['en']['content']) || empty($input['en']['content'])) {
+                $input['en']['content'] = $input['content'];
+            }
+
             $this->model->tags()->sync($input['tags']);
             $this->model->en()->create($input['en']);
 
