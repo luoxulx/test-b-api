@@ -16,18 +16,17 @@
     <div id="front">
         @yield('main')
     </div>
+<!-- script -->
 <script src="{{ mix('/js/default.js') }}" type="text/javascript"></script>
-<script>
-  (function(){if(document.getElementsByClassName("ts-full-screen").length){document.getElementsByClassName("ts-full-screen")[0].style.height=window.innerHeight+"px"}})();
-</script>
 <script type="text/javascript">
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?ee2c362479999ce7c3ec7364cbad4ac2";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
+  (function(){if(document.getElementsByClassName("ts-full-screen").length){document.getElementsByClassName("ts-full-screen")[0].style.height=window.innerHeight+"px"}})();
+  let _hmt = _hmt || [];
+  (function() {
+    let hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?ee2c362479999ce7c3ec7364cbad4ac2";
+    let s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
 </script>
 
 </body>

@@ -44,7 +44,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/hacker.jpg" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/hacker.jpg" alt="hacker"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Fake Hacker</h4>
                                     <p class="mb-0"><a href="https://en.wikipedia.org/wiki/Hacker" target="_blank">Hacker</a> Arsenal What is done is not malicious destruction, they are a group of technical personnel across the network, keen on scientific and technological exploration, Computer science research. </p>
@@ -60,7 +60,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".1s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/python.jpg" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/python.jpg" alt="Python3"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Python</h4>
                                     <p class="mb-0"><a href="https://www.python.org/" target="_blank">Python</a> is powerful... and fast,plays well with others,runs everywhere,is friendly & easy to learn,is Open.These are some of the reasons people who use Python would rather not use anything else. </p>
@@ -76,7 +76,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".2s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/vue.jpg" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/vue.jpg" alt="Vue2"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Web & Vue</h4>
                                     <p class="mb-0"><a href="https://vuejs.org/v2/guide/" target="_blank">Vue</a>, an incrementally adoptable ecosystem that scales between a library and a full-featured framework. 20KB min+gzip Runtime Blazing Fast Virtual DOM Minimal Optimization Efforts. </p></div>
@@ -91,7 +91,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".3s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/php.jpg" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/php.jpg" alt="PHP7"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>PHP & Laravel</h4>
                                     <p class="mb-0">Laravel, Value elegance, simplicity, and readability? You’ll fit right in. <a href="https://laravel.com/" target="_blank">Laravel</a> is designed for people just like you. If you need help getting started, check out Laracasts and their great <a href="https://laravel.com/docs" target="_blank">documentation</a>. </p></div>
@@ -106,7 +106,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".4s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/icon-lcd.png" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/icon-lcd.png" alt="Go lang"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Go</h4>
                                     <p class="mb-0"><a href="https://golang.org/" target="_blank">Go</a> is an open source programming language that makes it easy to build simple, reliable, and efficient software. </p>
@@ -122,7 +122,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".5s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/wow.jpg" alt=""></figure>
+                                    <figure class="icon"><img src="/images/pic/wow.jpg" alt="World of Warcraft (WoW)"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>World of Warcraft</h4>
                                     <p class="mb-0"><a href="https://worldofwarcraft.com/" target="_blank">World of Warcraft (WoW)</a> is a massively multiplayer online role-playing game (MMORPG) released in 2004 by Blizzard Entertainment. </p>
@@ -142,7 +142,7 @@
             <div class="container">
                 <div class="ts-title text-center"><h2>About 14k</h2></div>
                 <div class="row ts-align__vertical">
-                    <div class="col-md-6"><img src="{{ $bingPic[1] }}" alt="" class="mw-100 mb-5"></div>
+                    <div class="col-md-6"><img src="{{ $bingPic[1] }}" alt="{{ $bingPic[1] }}" class="mw-100 mb-5"></div>
                     <div class="col-md-6">
                         <h4 class="ts-bubble-border">Hi There</h4>
                         <p>Even if my dreams are lonely, I will not forget to cheer myself up. At least, LongKui will accompany me to the end! &nbsp;&nbsp;LNMPA. </p>
@@ -254,7 +254,7 @@
                 <div class="card-columns ts-gallery ts-column-count-4">
                     @forelse($allPics as $val)
                         <a href="{{ $val['real_url'] }}" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
-                            <div class="ts-gallery__image"><img src="{{ $val['real_url'] }}" class="card-img" alt="">
+                            <div class="ts-gallery__image"><img src="{{ $val['real_url'] }}" class="card-img" alt="{{ $val['copyright'] }}">
                                 <div class="ts-gallery__item-description">
                                     <h6 class="ts-opacity__50 ts-text-small">{{ $val['copyright'] }}</h6>
                                     <h4>{{ $val['startdate'] }}</h4>
@@ -267,8 +267,8 @@
                             <h6 class="ts-opacity__50">Branding</h6>
                             <h4>Pehaz</h4>
                         </div>
-                        <img src="/images/pic/img-work-01.png" class="card-img" alt=""><!--end ts-gallery__image-->
-                    </a><!--end card ts-gallery__item-->
+                        <img src="/images/pic/img-work-01.png" class="card-img" alt="empty image">
+                    </a>
                     @endforelse
 
                 </div>
