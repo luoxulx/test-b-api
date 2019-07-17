@@ -48,3 +48,17 @@ if (!function_exists('curl')) {
         }
     }
 }
+
+if (!function_exists('is_ip')) {
+    function is_ip(string $string)
+    {
+        $ip=explode('.',$string);
+
+        foreach ($ip as $iValue) {
+            if($iValue > 255) {
+                return false;
+            }
+        }
+        return preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $string);
+    }
+}

@@ -1,6 +1,7 @@
 <div class="p-3 mb-3 bg-transparent rounded">
     <h4 class="font-italic">About</h4>
     <p class="mb-0">
+        <a href="https://www.lnmpa.top" target="_blank">14k</a>
         <em>Victor&middot;Frankenstein</em>
         <br>
         Even if my dreams are lonely,  I will not forget to cheer myself up. At least, The funny cigarettes will accompany me to the end! —LNMPA

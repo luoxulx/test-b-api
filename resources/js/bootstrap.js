@@ -12,35 +12,41 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
 
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
+  window.Vue = require('vue');
 
-window.axios = require('axios');
+  /**
+   * We'll load the axios HTTP library which allows us to easily issue requests
+   * to our Laravel back-end. This library automatically handles sending the
+   * CSRF token as a header based on the value of the "XSRF" token cookie.
+   */
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+  window.axios = require('axios');
 
-// 请求拦截器---lx-new
-window.axios.interceptors.request.use(function (config) {
-  // 在发送请求之前做些什么
-  return config
-}, function (error) {
-  // 对请求错误做些什么
-  return Promise.reject(error)
-})
-// 响应拦截器
-window.axios.interceptors.response.use(function (response) {
-  // 对响应数据做点什么
-  return response.data
-}, function (error) {
-  // 对响应错误做点什么
-  return Promise.reject(error)
-})
-// lx---end
+  window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+  // 请求拦截器---lx-new
+  window.axios.interceptors.request.use(function (config) {
+    // 在发送请求之前做些什么
+    return config
+  }, function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error)
+  })
+  // 响应拦截器
+  window.axios.interceptors.response.use(function (response) {
+    // 对响应数据做点什么
+    return response.data
+  }, function (error) {
+    // 对响应错误做点什么
+    return Promise.reject(error)
+  })
+  // lx---end
+
+} catch (e) {
+  console.error(e.message || e)
+}
+
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that

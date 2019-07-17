@@ -1,3 +1,4 @@
+@import "~element-ui/lib/theme-chalk/index.css";
 @import "~bootstrap/scss/bootstrap";
 @import './prism.scss';
 
@@ -146,4 +147,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 .margin-r-15 {
   margin-right: 15px !important;
+}
+
+#totop {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  z-index: 99999;
+  outline: none;
+  background-color: rgb(34, 45, 50);
+  color: rgb(238, 238, 238);
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 4px;
+  opacity: 0.5;
 }

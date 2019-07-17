@@ -22,6 +22,7 @@
                     </small>
                 </p>
                 <article class="blog-detail">{!! $article->content !!}</article>
+                <comment-component articleid="{{ $article->id }}"></comment-component>
             </div>
             <aside class="col-md-3 blog-sidebar">
                 @include('front.blog.aside')

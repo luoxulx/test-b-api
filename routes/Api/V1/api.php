@@ -18,6 +18,8 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
 
     Route::get('open/bing/pictures', 'OpenController@pictures')->name('api.open.bing.pictures');
     Route::post('open/feedback', 'FeedbackController@store')->name('api.open.feedback');
+    Route::post('open/comment/list', 'CommentController@index')->name('api.open.comment.list');
+    Route::post('open/comment', 'CommentController@store')->name('api.open.comment.store');
 
     /** ---------- open api end---------- */
 
@@ -39,7 +41,7 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
         Route::put('article/draft/{id}', 'ArticleController@draft')->name('api.article.draft');
         /** ---------- article end---------- */
 
-        // category
+        /* ---category-start--- */
         Route::resource('category', 'CategoryController', [
             'name' => [
                 'index' => 'api.category.index',
@@ -53,8 +55,9 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
         ]);
         Route::get('category/all', 'CategoryController@all_categories')->name('api.category.all_categories');
         Route::delete('category/batch', 'CategoryController@batch')->name('api.category.batch');
+        /* ---category-start--- */
 
-        // tag
+        /* ---tag-start--- */
         Route::resource('tag', 'TagController', [
             'name' => [
                 'index' => 'api.tag.index',
@@ -68,8 +71,9 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
         ]);
         Route::get('tag/all', 'TagController@all_tags')->name('api.tag.all_tags');
         Route::delete('tag/batch', 'TagController@batch')->name('api.tag.batch');
+        /* ---tag-start--- */
 
-        // comment
+        /* ---comment-start--- */
         Route::resource('comment', 'CommentController', [
             'name' => [
                 'index' => 'api.comment.index',
@@ -81,8 +85,9 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
             'except' => ['create', 'edit'],
             'parameters' => ['comment' => 'id']
         ]);
+        /* ---comment-end--- */
 
-        // video
+        /* ---videos-start--- */
         Route::resource('video', 'VideoController', [
             'name' => [
                 'index' => 'api.video.index',
@@ -94,8 +99,9 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
             'except' => ['create', 'edit'],
             'parameters' => ['video' => 'id']
         ]);
+        /* ---videos-end--- */
 
-        // links
+        /* ---links-start--- */
         Route::resource('link', 'LinkController', [
             'name' => [
                 'index' => 'api.link.index',
@@ -107,8 +113,9 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
             'except' => ['create', 'edit'],
             'parameters' => ['link' => 'id']
         ]);
+        /* ---links-end--- */
 
-        // user
+        /* ---user-start--- */
         Route::resource('user', 'UserController', [
             'name' => [
                 'index' => 'api.user.index',
@@ -122,16 +129,24 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
         ]);
         Route::get('user/info', 'UserController@info')->name('api.user.info');
         Route::post('auth/logout', 'AuthController@logout')->name('api.auth.logout');
+        /* ---user-end--- */
 
-        // system logs
+        /* ---system logs-start--- */
         Route::get('system/logs', 'SystemLogController@index')->name('api.system.log.index');
         Route::get('system/logs/{file?}', 'SystemLogController@index')->where('file','[a-z-0-9\-.]+')->name('api.system.log.file');
         Route::get('system/logs/{file}/tail', 'SystemLogController@tail')->where('file','[a-z-0-9\-.]+')->name('api.system.log.file.tail');
-        // file upload
+        /* ---system logs-end--- */
+
+        /* ---file upload-start--- */
         Route::get('file/list', 'FileController@index')->name('api.file.index');
         Route::get('file/upload/token', 'FileController@uploadToken')->name('api.file.uploadtoken');
         Route::post('file/info/write', 'FileController@saveFileInfo')->name('api.file.writeinfo');
-        /* --- */
+        /* ---file upload-end--- */
+
+        /* ---feedback-start--- */
+        Route::get('feedback', 'FeedbackController@index')->name('api.feedback.index');
+        Route::delete('feedback/{id}', 'FeedbackController@destroy')->name('api.feedback.destroy');
+        /* ---feedback-end--- */
 
     });
 });

@@ -13,7 +13,11 @@ class Comment extends BaseModel
 {
 
     protected $fillable = [
-        'created_by',
-        'content'
+        'user_id',
+        'article_id',
+        'nickname',
+        'content',
+        'origin',
+        'user_agent'
     ];
 }

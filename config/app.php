@@ -20,6 +20,7 @@ return [
         'vultr_api_key' => env('VULTR_API_KEY'),
         'qn_access_key' => env('QN_AK'),
         'qn_secret_key' => env('QN_SK'),
+        'bai_du_ip_ak' => env('BAIDUIP_AK')
     ],
 
     /*

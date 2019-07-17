@@ -1,7 +1,7 @@
-window.$ = window.jQuery = require('jquery');
-require('bootstrap');
+require('./bootstrap');
 require('./olr/prism.js');
-window.Vue = require('vue');
-
-new Vue({}).$mount('#b');
-
+window.ElementUI = require('element-ui')
+Vue.component('comment-component', require('./components/CommentComponent').default);
+const b = new Vue({
+  el: '#b',
+});

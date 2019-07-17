@@ -87,6 +87,9 @@ class ValidateRule
             'link.update' => [
                 'url'=>'required|string|url|unique:links,url,'.$id,
                 'name'=>'required|string|unique:links,name,'.$id,
+            ],
+            'comment.store' => [
+                'content' => 'required|string|max:255',
             ]
         ];
 

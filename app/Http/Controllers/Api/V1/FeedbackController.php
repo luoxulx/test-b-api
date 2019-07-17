@@ -22,6 +22,11 @@ class FeedbackController extends BaseController
         $this->feedback = $feedbackRepository;
     }
 
+    public function index()
+    {
+        return $this->response->collection($this->feedback->paginate(), new FeedbackTransformer());
+    }
+
     public function store()
     {
         $param = request()->all();
