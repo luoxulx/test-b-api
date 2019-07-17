@@ -23,7 +23,7 @@ class CommentRepository extends BaseRepository
     public function commentList($condition)
     {
         $columns = ['id','nickname','content','origin','user_id','article_id as a_id','created_at'];
-        return $this->model->where($condition)->select($columns)->get();
+        return $this->model->where($condition)->orderBy('created_at', 'desc')->select($columns)->get();
     }
 
     public function create($input)
