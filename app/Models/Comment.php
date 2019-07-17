@@ -20,4 +20,9 @@ class Comment extends BaseModel
         'origin',
         'user_agent'
     ];
+
+    public function article()
+    {
+        return $this->belongsTo(Article::class, 'article_id', 'id');
+    }
 }

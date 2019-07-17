@@ -89,4 +89,9 @@ class Article extends BaseModel
     {
         return $this->morphToMany(Tag::class,'taggable');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'article_id', 'id');
+    }
 }

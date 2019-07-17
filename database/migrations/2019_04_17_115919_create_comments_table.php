@@ -15,10 +15,12 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id', false, true)->default(0);
+            $table->integer('article_id', false, true)->default(1);
             $table->string('nickname', 128)->nullable()->comment('guest nickname');
-            $table->string('email', 128)->nullable()->comment('guest email');
-            $table->string('site', 128)->nullable()->comment('guest site');
-            $table->mediumText('content')->nullable()->comment('评论内容');
+            $table->mediumText('content')->nullable()->comment('comment content');
+            $table->mediumText('origin')->nullable()->comment('client origin');
+            $table->mediumText('user_agent')->nullable()->comment('client user_agent');
 
             $table->timestamps();
             $table->softDeletes();

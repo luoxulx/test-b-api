@@ -17,6 +17,9 @@ class CommentTransformer extends TransformerAbstract
 
     public function transform(Comment $comment)
     {
-        return $comment->attributesToArray();
+        $data = $comment->attributesToArray();
+        $data['article_title'] = $comment->article()->value('title');
+
+        return $data;
     }
 }
