@@ -25,6 +25,11 @@ class CommentController extends BaseController
 
     public function index()
     {
+        return $this->response->collection($this->comment->paginate(), new CommentTransformer());
+    }
+
+    public function commentList()
+    {
         $all = request()->get('all');
         $condition = [
             'article_id' => request()->get('article_id', 1)
@@ -32,7 +37,8 @@ class CommentController extends BaseController
         if ($all) {
             return $this->response->collection($this->comment->commentList($condition), new CommentTransformer());
         }
-        return $this->response->collection($this->comment->paginate(), new CommentTransformer());
+
+        return [];
     }
 
     public function show(int $id)

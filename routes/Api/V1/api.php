@@ -18,7 +18,7 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
 
     Route::get('open/bing/pictures', 'OpenController@pictures')->name('api.open.bing.pictures');
     Route::post('open/feedback', 'FeedbackController@store')->name('api.open.feedback');
-    Route::post('open/comment/list', 'CommentController@index')->name('api.open.comment.list');
+    Route::post('open/comment/list', 'CommentController@commentList')->name('api.open.comment.list');
     Route::post('open/comment', 'CommentController@store')->name('api.open.comment.store');
 
     /** ---------- open api end---------- */
