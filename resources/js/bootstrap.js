@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -13,7 +12,7 @@ try {
 
     require('bootstrap');
 
-  window.Vue = require('vue');
+    window.Vue = require('vue');
 
   /**
    * We'll load the axios HTTP library which allows us to easily issue requests

@@ -17,7 +17,6 @@ require('./olr/odometer.min.js');
 require('./olr/owl.carousel.min.js');
 require('./olr/custom.js');
 // lx-end
-window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your

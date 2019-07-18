@@ -9,6 +9,8 @@
 namespace App\Models;
 
 
+use Illuminate\Support\Carbon;
+
 class Comment extends BaseModel
 {
 
@@ -20,6 +22,15 @@ class Comment extends BaseModel
         'origin',
         'user_agent'
     ];
+
+    public function getCreatedAtAttribute($val)
+    {
+        if (Carbon::now() > Carbon::parse($val)->addDays(15)) {
+            return Carbon::parse($val);
+        }
+
+        return Carbon::parse($val)->diffForHumans();
+    }
 
     public function article()
     {

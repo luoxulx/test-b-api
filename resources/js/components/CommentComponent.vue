@@ -22,7 +22,7 @@
       <div class="col-md-12">
         <h4 v-if="commentList.length" class="card-title">Comments(Primary)</h4>
         <div v-for="item in commentList" :class="commentListBgArray[Math.floor(Math.random() * commentListBgArray.length)]">
-          <div class="card-header">{{ item.nickname || item.origin }} &nbsp;&nbsp;<small>{{ item.created_at }}</small></div>
+          <div class="card-header">{{ item.nickname || item.origin }} &nbsp;&nbsp;<small><i class="el-icon-time"></i>{{ item.created_at }}</small></div>
           <div :class="pTextArray[Math.floor(Math.random() * pTextArray.length)]">
             <p class="card-text">{{ item.content }}</p>
           </div>
@@ -101,9 +101,6 @@
       getCommentList() {
         window.axios.post(this.getCommentListUri, {all: true, article_id: this.articleid}).then(res => {
           this.commentList = res.data
-          for (let i in this.commentList) {
-            this.commentList[i].created_at = this.commentList[i].created_at.substring(0, 16)
-          }
         })
       },
       submitComment() {
@@ -145,6 +142,9 @@
   }
   .card-header {
     padding: 0.25rem 0.75rem;
+  }
+  .el-icon-time {
+    margin-right: 3px;
   }
   .text-a {
     color: #d0d896;

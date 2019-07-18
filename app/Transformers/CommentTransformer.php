@@ -8,7 +8,6 @@
 
 namespace App\Transformers;
 
-
 use App\Models\Comment;
 use League\Fractal\TransformerAbstract;
 
