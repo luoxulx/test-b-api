@@ -20,6 +20,7 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
     Route::post('open/feedback', 'FeedbackController@store')->name('api.open.feedback');
     Route::post('open/comment/list', 'CommentController@commentList')->name('api.open.comment.list');
     Route::post('open/comment', 'CommentController@store')->name('api.open.comment.store');
+    Route::post('open/reply', 'ReplyController@store')->name('api.open.reply.store');
 
     /** ---------- open api end---------- */
 

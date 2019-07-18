@@ -22,14 +22,29 @@
       <div class="col-md-12">
         <h4 v-if="commentList.length" class="card-title">Comments(Primary)</h4>
         <div v-for="item in commentList" :class="commentListBgArray[Math.floor(Math.random() * commentListBgArray.length)]">
-          <div class="card-header">{{ item.nickname || item.origin }} &nbsp;&nbsp;<small><i class="el-icon-time"></i>{{ item.created_at }}</small></div>
+          <div class="card-header"><i class="el-icon-map-location m-r-3"></i>{{ item.nickname || item.origin }} &nbsp;&nbsp;<small><i class="el-icon-time m-r-3"></i>{{ item.created_at }}</small></div>
           <div :class="pTextArray[Math.floor(Math.random() * pTextArray.length)]">
             <p class="card-text">{{ item.content }}</p>
+            <el-button type="default" size="mini" @click="openReplyDialogVisible(item)">回复</el-button>
           </div>
         </div>
       </div>
     </div>
 
+    <el-dialog :title="replyToWho" :visible.sync="replyDialogVisible" width="35%">
+      <div class="card-body text-info" style="padding: 0.5rem;">
+        <el-form ref="replyFormRef" :model="replyForm" :rules="replyRule" size="mini">
+          <el-form-item prop="content" label="">
+            <el-input type="textarea" v-model="replyForm.content" required rows="3"></el-input>
+            <small v-show="replyContentLength" class="word-counter">{{ replyContentLength }}/225</small>
+          </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+          <el-button size="mini" @click="replyDialogVisible = false">取消</el-button>
+          <el-button v-loading="submitLoading" type="primary" size="mini" @click="submitReply">确定</el-button>
+        </span>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -50,6 +65,9 @@
       commentContentLength() {
         return 225 - this.commentForm.content.length < 0 ? 0 : 225 - this.commentForm.content.length
       },
+      replyContentLength() {
+        return 225 - this.replyForm.content.length < 0 ? 0 : 225 - this.replyForm.content.length
+      },
     },
     created() {
       this.commentForm = Object.assign({}, defaultCommentForm)
@@ -58,8 +76,10 @@
     data() {
       return {
         submitLoading: false,
+        replyDialogVisible: false,
         getCommentListUri: '/api/v1/open/comment/list',
         createCommentUri: '/api/v1/open/comment',
+        replyCommentUri: '/api/v1/open/reply',
         commentListBgArray: [
           'card border-primary mb-3',
           'card border-secondary mb-3',
@@ -90,7 +110,17 @@
         commentRule: {
           content: [{ required: true, message: 'The field is required. ', trigger: 'blur' }, { max: 225, message: 'The field can\'t exceed 225 characters. ', trigger: 'change' }]
         },
+        replyRule: {
+          content: [{ required: true, message: 'The field is required. ', trigger: 'blur' }, { max: 225, message: 'The field can\'t exceed 225 characters. ', trigger: 'change' }]
+        },
         commentForm: {},
+        replyForm: {
+          comment_id: 0,
+          user_id: 0,
+          nickname: '',
+          content: ''
+        },
+        replyToWho: '',
         commentList: []
       }
     },
@@ -126,6 +156,43 @@
           }
           this.submitLoading = false
         })
+      },
+      openReplyDialogVisible(row) {
+        this.replyForm.comment_id = row.id || 0
+        this.replyToWho = '回复 ' + (row.nickname || row.origin)
+        this.replyDialogVisible = true
+      },
+      submitReply() {
+        this.submitLoading = true
+        this.replyForm.user_agent = window.navigator.userAgent
+
+        this.$refs.replyFormRef.validate(valid => {
+          if(valid) {
+            if(!this.replyForm.comment_id) {
+              this.$message.error('Param Error')
+              return true
+            }
+            window.axios.post(this.replyCommentUri, this.replyForm).then(res => {
+              if(res.status === true) {
+                this.$message.success('Reply received, pending review. ')
+                this.replyForm = {
+                  comment_id: 0,
+                  user_id: 0,
+                  nickname: '',
+                  content: ''
+                }
+                this.refreshList()
+                this.replyDialogVisible = false
+              } else {
+                this.$message.error(res.message)
+              }
+              return true
+            }).catch(error => {
+              this.$message.error(error.message)
+            })
+          }
+          this.submitLoading = false
+        })
       }
     }
   }
@@ -143,8 +210,18 @@
   .card-header {
     padding: 0.25rem 0.75rem;
   }
-  .el-icon-time {
+  .m-r-3 {
     margin-right: 3px;
+    color: #653dbd;
+  }
+  .el-button--mini {
+    padding: 5px 5px;
+  }
+  button:focus {
+    outline: 1px dotted;
+  }
+  .el-dialog__body {
+    padding: 10px 20px;
   }
   .text-a {
     color: #d0d896;
