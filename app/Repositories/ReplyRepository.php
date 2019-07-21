@@ -2,35 +2,28 @@
 /**
  * Created by PhpStorm.
  * User: luoxulx
- * Date: 2019/4/18
- * Time: 下午7:21
+ * Date: 2019/7/19
+ * Time: 下午3:48
  */
 
 namespace App\Repositories;
 
 
-use App\Mail\CommentNew;
-use App\Models\Comment;
-use App\Support\BaiduIpLocation;
-use Illuminate\Support\Facades\Mail;
+use App\Models\Reply;
 
-class CommentRepository extends BaseRepository
+use App\Support\BaiduIpLocation;
+
+class ReplyRepository extends BaseRepository
 {
 
-    public function __construct(Comment $comment)
+    public function __construct(Reply $reply)
     {
-        $this->model = $comment;
-    }
-
-    public function commentList($condition)
-    {
-        $columns = ['id','nickname','content','origin','user_id','article_id','created_at'];
-        return $this->model->where($condition)->orderBy('created_at', 'desc')->select($columns)->get();
+        $this->model = $reply;
     }
 
     /**
      * @param $input
-     * @return Comment
+     * @return Reply
      * @throws \Exception
      */
     public function create($input)
@@ -47,8 +40,6 @@ class CommentRepository extends BaseRepository
 
             $this->model->save();
 
-            Mail::to('luoxulx@live.com')->send(new CommentNew($input));
-
             return $this->model;
         } catch (\Exception $exception) {
             $this->rollback();
@@ -56,5 +47,4 @@ class CommentRepository extends BaseRepository
             throw new \Exception($exception->getMessage() ?? 'Unknown Error', 400);
         }
     }
-
 }

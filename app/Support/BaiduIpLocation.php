@@ -22,6 +22,11 @@ class BaiduIpLocation
      */
     public function getIpLocation($ip = '')
     {
+
+        if (preg_match('%^127\.|10\.|192\.168|172\.(1[6-9]|2|3[01])%', $ip)) {
+            return 'LAN';
+        }
+
         $url = 'https://api.map.baidu.com/location/ip';
 
         $ak = config('app.14k.bai_du_ip_ak');

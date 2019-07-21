@@ -1,6 +1,7 @@
 require('./bootstrap');
 require('./olr/prism.js');
-window.ElementUI = require('element-ui')
+import Element from 'element-ui';
+Vue.use(Element, { size: 'small', zIndex: 3000 });
 Vue.component('comment-component', require('./components/CommentComponent').default);
 const b = new Vue({
   el: '#b',

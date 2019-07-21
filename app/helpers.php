@@ -41,10 +41,7 @@ if (!function_exists('curl')) {
 
             return json_decode($response->getBody()->getContents(), true);
         } catch (Exception $exception) {
-            return [
-                'code' => -1,
-                'message' => $exception->getMessage()
-            ];
+            throw new \Symfony\Component\HttpKernel\Exception\HttpException($exception->getCode(), $exception->getMessage());
         }
     }
 }
@@ -60,5 +57,22 @@ if (!function_exists('is_ip')) {
             }
         }
         return preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $string);
+    }
+}
+
+if (!function_exists('getClientIp')) {
+    function getClientIp()
+    {
+        $ip = null;
+
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            return is_ip($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : $ip;
+        }
+
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            return is_ip($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $ip;
+        }
+
+        return is_ip($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : $ip;
     }
 }
