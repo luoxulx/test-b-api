@@ -89,7 +89,10 @@ class ValidateRule
                 'name'=>'required|string|unique:links,name,'.$id,
             ],
             'comment.store' => [
-                'content' => 'required|string|max:255',
+                'content' => 'required|string|min:1|max:255',
+            ],
+            'reply.store' => [
+                'content' => 'required|string|min:1|max:255',
             ]
         ];
 

@@ -13,7 +13,7 @@ class CreateReplyTable extends Migration
      */
     public function up()
     {
-        Schema::create('reply', function (Blueprint $table) {
+        Schema::create('replies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id', false, true)->default(0);
             $table->integer('comment_id', false, true)->default(0);
@@ -33,6 +33,6 @@ class CreateReplyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reply');
+        Schema::dropIfExists('replies');
     }
 }

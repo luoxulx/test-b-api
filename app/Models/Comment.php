@@ -25,10 +25,6 @@ class Comment extends BaseModel
 
     public function getCreatedAtAttribute($val)
     {
-        if (Carbon::now() > Carbon::parse($val)->addDays(15)) {
-            return Carbon::parse($val);
-        }
-
         return Carbon::parse($val)->diffForHumans();
     }
 

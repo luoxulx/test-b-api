@@ -18,7 +18,7 @@ class CommentTransformer extends TransformerAbstract
     {
         $data = $comment->attributesToArray();
         $data['article_title'] = $comment->article()->value('title');
-        $data['replies'] = $comment->replies()->select(['id','nickname','content','origin','created_at'])->get();
+        $data['replies'] = $comment->replies()->orderBy('created_at', 'asc')->select(['id','nickname','content','origin','created_at'])->get();
 
         return $data;
     }

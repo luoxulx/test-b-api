@@ -28,3 +28,7 @@
         @endforelse
     </ol>
 </div>
+<div class="p-3">
+    <h4>Vultr</h4>
+    <a href="https://www.vultr.com/?ref=8021864-4F"><img src="https://www.vultr.com/media/banners/banner_300x250.png" width="100%" height="auto"></a>
+</div>

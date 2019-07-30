@@ -9,6 +9,8 @@
 namespace App\Models;
 
 
+use Carbon\Carbon;
+
 class Reply extends BaseModel
 {
 
@@ -20,6 +22,11 @@ class Reply extends BaseModel
         'origin',
         'user_agent'
     ];
+
+    public function getCreatedAtAttribute($val)
+    {
+        return Carbon::parse($val)->diffForHumans();
+    }
 
     public function comment()
     {

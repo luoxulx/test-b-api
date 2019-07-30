@@ -40,7 +40,9 @@ class ReplyRepository extends BaseRepository
 
             $this->model->save();
 
+            $this->commit();
             return $this->model;
+
         } catch (\Exception $exception) {
             $this->rollback();
 

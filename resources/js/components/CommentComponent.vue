@@ -26,6 +26,19 @@
           <div :class="pTextArray[Math.floor(Math.random() * pTextArray.length)]">
             <p class="card-text">{{ item.content }}</p>
             <el-button type="default" size="mini" @click="openReplyDialogVisible(item)">回复</el-button>
+
+            <div class="comment-children">
+              <ul v-if="item.replies" class="list-group list-group-flush">
+                <li v-for="child in item.replies" class="list-group-item">
+                  <p :class="childArray[Math.floor(Math.random() * childArray.length)]">{{ child.content }}</p>
+                  <footer class="blockquote-footer text-right">
+                    <small class="text-muted text-right">
+                      {{ child.created_at }}，<cite title="Source Title">{{ child.nickname || child.origin }}</cite>
+                    </small>
+                  </footer>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -106,6 +119,23 @@
           'card-body text-m',
           'card-body text-n',
           'card-body text-o'
+        ],
+        childArray: [
+          'text-a',
+          'text-b',
+          'text-c',
+          'text-d',
+          'text-e',
+          'text-f',
+          'text-g',
+          'text-h',
+          'text-i',
+          'text-j',
+          'text-k',
+          'text-l',
+          'text-m',
+          'text-n',
+          'text-o',
         ],
         commentRule: {
           content: [{ required: true, message: 'The field is required. ', trigger: 'blur' }, { max: 225, message: 'The field can\'t exceed 225 characters. ', trigger: 'change' }]
@@ -199,6 +229,15 @@
 </script>
 
 <style scoped>
+  .comment-children {
+    margin-top: 10px;
+  }
+  .comment-children ul li p {
+    margin: 0;
+  }
+  .list-group-item {
+    padding: 0.25rem 0.5rem;
+  }
   .word-counter {
     position: absolute;
     right: 5px;
@@ -230,7 +269,7 @@
     color: #d43e4d;
   }
   .text-c {
-    color: #2fd9b2;
+    color: #06d96a;
   }
   .text-d {
     color: #844dff;
@@ -248,7 +287,7 @@
     color: #1a1243;
   }
   .text-i {
-    color: #6450bd;
+    color: #7e55bd;
   }
   .text-j {
     color: #5b36ff;
