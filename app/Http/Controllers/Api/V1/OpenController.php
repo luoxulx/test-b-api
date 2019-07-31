@@ -9,6 +9,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 
+use App\Mail\CommentNew;
+use Illuminate\Support\Facades\Mail;
+
 class OpenController extends BaseController
 {
 
@@ -56,5 +59,12 @@ class OpenController extends BaseController
         }
 
         return $this->response->json(['data'=>$response]);
+    }
+
+
+    public function testMail()
+    {
+        $data['content'] = 'xxx';
+        Mail::to('luoxulx@live.com')->send(new CommentNew($data));
     }
 }

@@ -12,7 +12,14 @@
                 <small v-show="commentContentLength" class="word-counter">{{ commentContentLength }}/225</small>
               </el-form-item>
             </el-form>
-            <el-button v-loading="submitLoading" type="primary" size="mini" @click="submitComment">吐槽</el-button>
+            <el-row>
+              <el-col :span="8">
+                <verify ref="verifyRef"></verify>
+              </el-col>
+              <el-col :span="16">
+                <el-button v-loading="submitLoading" type="primary" size="small" @click="submitComment">吐槽</el-button>
+              </el-col>
+            </el-row>
           </div>
         </div>
       </div>
@@ -138,7 +145,7 @@
           'text-o',
         ],
         commentRule: {
-          content: [{ required: true, message: 'The field is required. ', trigger: 'blur' }, { max: 225, message: 'The field can\'t exceed 225 characters. ', trigger: 'change' }]
+          content: [{ required: true, message: 'The field is required. ', trigger: 'blur' }, { max: 225, message: 'The field can\'t exceed 225 characters. ', trigger: 'change' }, { min: 1, message: 'The field can\'t be null. ', trigger: 'blur' }]
         },
         replyRule: {
           content: [{ required: true, message: 'The field is required. ', trigger: 'blur' }, { max: 225, message: 'The field can\'t exceed 225 characters. ', trigger: 'change' }]
@@ -171,18 +178,22 @@
 
         this.$refs.commentFormRef.validate(valid => {
           if(valid) {
-            window.axios.post(this.createCommentUri, this.commentForm).then(res => {
-              if(res.status === true) {
-                this.$message.success('Comments received, pending review. ')
-                this.commentForm.content = ''
-                this.refreshList()
-              } else {
-                this.$message.error(res.message)
-              }
-              return true
-            }).catch(error => {
-              this.$message.error(error.message)
-            })
+            if (this.$refs.verifyRef.nowVerify === true) {
+              window.axios.post(this.createCommentUri, this.commentForm).then(res => {
+                if(res.status === true) {
+                  this.$message.success('Comments received, pending review. ')
+                  this.commentForm.content = ''
+                  this.refreshList()
+                } else {
+                  this.$message.error(res.message)
+                }
+                return true
+              }).catch(error => {
+                this.$message.error(error.message)
+              })
+            } else {
+              this.$message.error('请拖动滑块完成验证！')
+            }
           }
           this.submitLoading = false
         })
