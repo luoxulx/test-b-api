@@ -44,7 +44,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/hacker.jpg" alt="hacker"></figure>
+                                    <figure class="icon"><img src="https://net.lnmpa.top/owl/pic/hacker.jpg" alt="hacker"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Fake Hacker</h4>
                                     <p class="mb-0"><a href="https://en.wikipedia.org/wiki/Hacker" target="_blank">Hacker</a> Arsenal What is done is not malicious destruction, they are a group of technical personnel across the network, keen on scientific and technological exploration, Computer science research. </p>
@@ -60,7 +60,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".1s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/python.jpg" alt="Python3"></figure>
+                                    <figure class="icon"><img src="https://net.lnmpa.top/owl/pic/python.jpg" alt="Python3"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Python</h4>
                                     <p class="mb-0"><a href="https://www.python.org/" target="_blank">Python</a> is powerful... and fast,plays well with others,runs everywhere,is friendly & easy to learn,is Open.These are some of the reasons people who use Python would rather not use anything else. </p>
@@ -76,7 +76,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".2s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/vue.jpg" alt="Vue2"></figure>
+                                    <figure class="icon"><img src="https://net.lnmpa.top/owl/pic/vue.jpg" alt="Vue2"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Web & Vue</h4>
                                     <p class="mb-0"><a href="https://vuejs.org/v2/guide/" target="_blank">Vue</a>, an incrementally adoptable ecosystem that scales between a library and a full-featured framework. 20KB min+gzip Runtime Blazing Fast Virtual DOM Minimal Optimization Efforts. </p></div>
@@ -91,7 +91,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".3s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/php.jpg" alt="PHP7"></figure>
+                                    <figure class="icon"><img src="https://net.lnmpa.top/owl/pic/php.jpg" alt="PHP7"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>PHP & Laravel</h4>
                                     <p class="mb-0">Laravel, Value elegance, simplicity, and readability? You’ll fit right in. <a href="https://laravel.com/" target="_blank">Laravel</a> is designed for people just like you. If you need help getting started, check out Laracasts and their great <a href="https://laravel.com/docs" target="_blank">documentation</a>. </p></div>
@@ -106,7 +106,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".4s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/icon-lcd.png" alt="Go lang"></figure>
+                                    <figure class="icon"><img src="https://net.lnmpa.top/owl/pic/icon-lcd.png" alt="Go lang"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>Go</h4>
                                     <p class="mb-0"><a href="https://golang.org/" target="_blank">Go</a> is an open source programming language that makes it easy to build simple, reliable, and efficient software. </p>
@@ -122,7 +122,7 @@
                         <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".5s">
                             <div class="ts-item-content">
                                 <div class="ts-item-header">
-                                    <figure class="icon"><img src="/images/pic/wow.jpg" alt="World of Warcraft (WoW)"></figure>
+                                    <figure class="icon"><img src="https://net.lnmpa.top/owl/pic/wow.jpg" alt="World of Warcraft (WoW)"></figure>
                                 </div>
                                 <div class="ts-item-body"><h4>World of Warcraft</h4>
                                     <p class="mb-0"><a href="https://worldofwarcraft.com/" target="_blank">World of Warcraft (WoW)</a> is a massively multiplayer online role-playing game (MMORPG) released in 2004 by Blizzard Entertainment. </p>
@@ -175,7 +175,7 @@
                 <div class="text-center px-5 pt-5 position-relative">
                     <h3 class="my-3"> Fish and bear's paw can not be both, but single and poor can! </h3>
                     <a href="#contact" class="btn btn-primary mr-2 ts-push-down__50 ts-has-talk-arrow">WeChat: Antediluvian-X</a>
-                    <div class="ts-background ts-opacity__20" data-bg-image="/images/pic/bg-keyboard.jpg"></div>
+                    <div class="ts-background ts-opacity__20" data-bg-image="https://net.lnmpa.top/owl/pic/bg-keyboard.jpg"></div>
                 </div>
             </div>
         </section>
@@ -262,12 +262,12 @@
                             </div>
                         </a>
                     @empty
-                        <a href="/images/pic/img-work-01.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
+                        <a href="https://net.lnmpa.top/owl/pic/img-work-01.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
                         <div class="ts-gallery__item-description">
                             <h6 class="ts-opacity__50">Branding</h6>
                             <h4>Pehaz</h4>
                         </div>
-                        <img src="/images/pic/img-work-01.png" class="card-img" alt="empty image">
+                        <img src="https://net.lnmpa.top/owl/pic/img-work-01.png" class="card-img" alt="empty image">
                     </a>
                     @endforelse
 

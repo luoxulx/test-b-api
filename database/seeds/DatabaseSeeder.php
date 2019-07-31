@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'lx@lx.com',
                 'is_admin' => 1,
                 'introduction' => 'xxx',
-                'avatar' => 'https://www.lnmpa.top/images/pic/default-avatar.jpg',
+                'avatar' => 'https://net.lnmpa.top/owl/pic/default-avatar.jpg',
                 'password' => \Illuminate\Support\Facades\Hash::make('aaaaaa'),
                 'created_at' => \Illuminate\Support\Carbon::now(),
                 'updated_at' => \Illuminate\Support\Carbon::now()
