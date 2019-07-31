@@ -32,7 +32,7 @@ class WebhookController extends Controller
         if ($lx === 'lx' || strcmp($githubSign, $hash) === 0) {
             set_time_limit(120);
             // php-fpm 用户就是 lx，所以不用切换用户
-            exec('cd /var/web/lnmpa.top/ && git pull 2>&1', $result);
+            exec('cd /var/web/14k-lnmpa && git pull 2>&1', $result);
 
             return response()->json(['code'=>-1,'message'=>'sha1 error','data'=>$result]);
         }
