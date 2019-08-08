@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 
+use App\Jobs\SendNewCommentAlertEmail;
 use App\Repositories\CommentRepository;
 use App\Transformers\CommentTransformer;
 
@@ -49,8 +50,11 @@ class CommentController extends BaseController
     public function store()
     {
         $param = request()->all();
+        $resource = $this->comment->create($param);
 
-        return $this->response->withCreated($this->comment->create($param), new CommentTransformer());
+        $this->dispatch(new SendNewCommentAlertEmail($resource));
+
+        return $this->response->withCreated($resource, new CommentTransformer());
     }
 
     public function update(int $id)

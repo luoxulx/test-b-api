@@ -60,11 +60,4 @@ class OpenController extends BaseController
 
         return $this->response->json(['data'=>$response]);
     }
-
-
-    public function testMail()
-    {
-        $data['content'] = 'xxx';
-        Mail::to('luoxulx@live.com')->send(new CommentNew($data));
-    }
 }

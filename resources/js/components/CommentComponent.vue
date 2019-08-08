@@ -182,6 +182,7 @@
               window.axios.post(this.createCommentUri, this.commentForm).then(res => {
                 if(res.status === true) {
                   this.$message.success('Comments received, pending review. ')
+                  this.$refs.verifyRef.nowVerify = false
                   this.commentForm.content = ''
                   this.refreshList()
                 } else {
@@ -195,6 +196,7 @@
               this.$message.error('请拖动滑块完成验证！')
             }
           }
+
           this.submitLoading = false
         })
       },

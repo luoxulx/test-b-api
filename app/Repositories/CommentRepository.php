@@ -47,7 +47,6 @@ class CommentRepository extends BaseRepository
 
             $this->model->save();
 
-            // Mail::to('luoxulx@live.com')->send(new CommentNew($input));
             $this->commit();
 
             return $this->model;

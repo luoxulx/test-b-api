@@ -18,9 +18,9 @@ class CommentNew extends Mailable implements ShouldQueue
      *
      * @param $data
      */
-    public function __construct($data)
+    public function __construct($data = null)
     {
-        $this->data = $data ?? [];
+        $this->data = $data;
     }
 
     /**
