@@ -22,5 +22,6 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script type="text/javascript" src="{{ mix('js/b.js') }}"></script>
 @include('front.layout.baidu')
+<script type="text/javascript" src="/static/autoload.js"></script>
 </body>
 </html>
