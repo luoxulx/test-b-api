@@ -3982,6 +3982,11 @@ default = o;
 default = r;
 	var o = e(2);
 	r.prototype.loadBytes = function(t, i) {
+		// 截取静态 CDN 资源 URI
+		if (t.indexOf('/l2d/model/') != -1) {
+			t = t.substr(30)
+		}
+
 		var e = new XMLHttpRequest;
 		e.open("GET", t, !0), e.responseType = "arraybuffer", e.onload = function() {
 			switch (e.status) {
