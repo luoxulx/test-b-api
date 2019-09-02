@@ -8,7 +8,8 @@
     <meta name="description" content="Strive to be an American, 我就是喜欢🇺🇸，随你怎么喷">
 
     <link href="{{ asset('favicon.ico') }}" rel='shortcut icon' type='image/x-icon'>
-    <link rel="stylesheet" href="{{ mix('/css/default.css') }}">
+    {{--<link rel="stylesheet" href="{{ mix('/css/default.css') }}">--}}
+    <link rel="stylesheet" href="https://net.lnmpa.top/14k/css/default.css">
     <link href="https://cdn.bootcss.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
     <title>@yield('metaTitle', 'Frankenstein 14k - Personal')</title>
 </head>
@@ -17,7 +18,8 @@
         @yield('main')
     </div>
 <!-- script -->
-<script src="{{ mix('/js/default.js') }}" type="text/javascript"></script>
+{{--<script src="{{ mix('/js/default.js') }}" type="text/javascript"></script>--}}
+<script src="https://net.lnmpa.top/14k/js/default.js" type="text/javascript"></script>
 <script type="text/javascript">
   (function(){if(document.getElementsByClassName("ts-full-screen").length){document.getElementsByClassName("ts-full-screen")[0].style.height=window.innerHeight+"px"}})();
   var _hmt = _hmt || [];
