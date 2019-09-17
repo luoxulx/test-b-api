@@ -3240,11 +3240,11 @@ function(t) {
 				default:
 					alert("profile _$6 _$Ui : " + t)
 				}
-				arguments.length < 2 && (i = !0), i && console.log("profile : " + t.PROFILE_NAME);
-				for (var e in t) at[e] = t[e], i && console.log("  [" + e + "] = " + t[e])
+				arguments.length < 2 && (i = !0), i && 1==1 // lx-new console.log("profile : " + t.PROFILE_NAME);
+				for (var e in t) at[e] = t[e], i && 1==1 // lx-new console.log("  [" + e + "] = " + t[e])
 			}, at.init = function() {
 				if (at._$6b) {
-					console.log("Live2D %s", at._$2s), at._$6b = !1;
+					// lx-new console.log("Live2D %s", at._$2s), at._$6b = !1;
 					!0, at.initProfile()
 				}
 			}, at.getVersionStr = function() {
@@ -3984,6 +3984,10 @@ default = r;
 	r.prototype.loadBytes = function(t, i) {
 		var e = new XMLHttpRequest;
 		e.open("GET", t, !0), e.responseType = "arraybuffer", e.onload = function() {
+      if (t.indexOf('https://net.lnmpa.top/l2d/model/') !== -1) {
+        t = t.substr(30)
+				console.info(t)
+      }
 			switch (e.status) {
 			case 200:
 				i(e.response);

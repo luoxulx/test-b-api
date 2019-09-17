@@ -12,4 +12,4 @@ try {
           initModel("static/assets/waifu-tips.json");
         }});
     }});
-} catch(err) { console.log("[Error] JQuery is not defined.") }
+} catch(err) { console.warn("[Error] JQuery is not defined.") }
