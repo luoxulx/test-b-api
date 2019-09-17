@@ -23,8 +23,6 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {{--<script type="text/javascript" src="{{ mix('js/b.js') }}"></script>--}}
 <script type="text/javascript" src="https://net.lnmpa.top/14k/js/b.js"></script>
-<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
 @include('front.layout.baidu')
-<script type="text/javascript" src="/static/autoload.js"></script>
 </body>
 </html>
