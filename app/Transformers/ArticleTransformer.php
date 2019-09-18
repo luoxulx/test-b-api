@@ -46,7 +46,7 @@ class ArticleTransformer extends TransformerAbstract
         }
 
         $result['tags'] = $tags;
-        dd($result);
+
         return $result;
     }
 
