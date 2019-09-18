@@ -22,6 +22,8 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
     Route::post('open/comment', 'CommentController@store')->name('api.open.comment.store');
     Route::post('open/reply', 'ReplyController@store')->name('api.open.reply.store');
 
+    Route::get('file/upload/token', 'FileController@uploadToken')->name('api.file.uploadtoken');
+
     /** ---------- open api end---------- */
 
     Route::group(['middleware' => 'auth:api'], function () {
@@ -140,7 +142,6 @@ Route::group(['middleware' => 'validate.input', 'prefix' => 'v1'], function () {
 
         /* ---file upload-start--- */
         Route::get('file/list', 'FileController@index')->name('api.file.index');
-        Route::get('file/upload/token', 'FileController@uploadToken')->name('api.file.uploadtoken');
         Route::post('file/info/write', 'FileController@saveFileInfo')->name('api.file.writeinfo');
         /* ---file upload-end--- */
 
