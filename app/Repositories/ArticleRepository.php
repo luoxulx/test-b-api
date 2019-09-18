@@ -23,7 +23,7 @@ class ArticleRepository extends BaseRepository
     {
         $perPage = request()->get('per_page', 10);
 
-        return $this->model->orderBy('updated_at', 'desc')->select(['id','category_id','user_id','is_draft','title','source','description','slug','updated_at'])->paginate($perPage);
+        return $this->model->orderBy('created_at', 'desc')->select(['id','category_id','user_id','is_draft','title','source','description','slug','updated_at'])->paginate($perPage);
     }
 
     public function getBySlug($slug)
