@@ -11,5 +11,8 @@ namespace App\Transformers;
 
 class EmptyTransformer
 {
-
+    public function transform()
+    {
+        return [];
+    }
 }

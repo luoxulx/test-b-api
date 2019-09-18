@@ -33,14 +33,14 @@ class ArticleController extends BaseController
 
     public function show(int $id)
     {
-        return $this->response->item($this->article->getById($id), new ArticleTransformer());
+        return $this->response->item($this->article->getById($id), new ArticleTransformer(['content']));
     }
 
     public function store()
     {
         $param = request()->all();
 
-        return $this->response->withCreated($this->article->create($param), new ArticleTransformer());
+        return $this->response->withCreated($this->article->create($param), new ArticleTransformer(['content']));
     }
 
     public function update(int $id)

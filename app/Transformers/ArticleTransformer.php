@@ -20,10 +20,20 @@ class ArticleTransformer extends TransformerAbstract
         'category'
     ];
 
+    public $enField;
+
+    public function __construct($enFields = [])
+    {
+        $this->enField = array_merge(
+            ['id','article_id','title','source','description'],
+            $enFields
+        );
+    }
+
     public function transform(Article $article)
     {
         $result = $article->attributesToArray();
-        $result['en'] = $article->en()->first(['id','article_id','title','source','description']);
+        $result['en'] = $article->en()->where(['article_id'=>$result['id']])->select($this->enField)->first()->attributesToArray();
         $result['category_name'] = $article->category()->value('name');
         $result['user_name'] = $article->user()->value('name');
 
@@ -36,7 +46,7 @@ class ArticleTransformer extends TransformerAbstract
         }
 
         $result['tags'] = $tags;
-
+        dd($result);
         return $result;
     }
 
