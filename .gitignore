@@ -10,6 +10,7 @@
 .env
 .phpunit.result.cache
 .tiny.key
+.user.ini
 composer.phar
 Homestead.json
 Homestead.yaml
