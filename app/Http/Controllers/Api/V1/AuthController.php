@@ -10,7 +10,6 @@ namespace App\Http\Controllers\Api\V1;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\JWTAuth;
 use Illuminate\Support\Facades\Auth;
-use Firebase\JWT\JWT;
 
 class AuthController extends BaseController
 {
@@ -68,24 +67,5 @@ class AuthController extends BaseController
         Auth::guard('api')->logout();
 
         return $this->response->json(['message'=>'successful']);
-    }
-
-    public function generateTinyToken(JWT $jwt)
-    {
-        $payload = [
-            'sub' => 'luoxulx',
-            'name' => 'luoxulx',
-            'exp' => time() + 60 * 10,
-            'https://claims.tiny.cloud/drive/root' => '/luoxulx'
-        ];
-
-        try {
-            $tinyPrivateKey = file_get_contents(base_path('.tiny.key'));
-            $token = $jwt->encode($payload, $tinyPrivateKey, 'RS256');
-        } catch (\Exception $exception) {
-            return $this->response->setHttpCode(400)->json(['message'=>$exception->getMessage() ?? $exception->getTrace()]);
-        }
-
-        return $this->response->json(['token'=>$token]);
     }
 }
