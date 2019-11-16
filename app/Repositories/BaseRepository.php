@@ -107,4 +107,9 @@ class BaseRepository implements BaseRepositoryInterface
         DB::rollBack();
     }
 
+    protected function incrementNoUpdateAt(int $id, string $field)
+    {
+
+    }
+
 }
