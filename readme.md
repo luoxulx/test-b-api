@@ -1,4 +1,4 @@
-##### 说明
+##### 命令记录
 - 定时任务：crontab -e
 - ~~token 一天有效~~
 - JWT secret：php artisan jwt:secret
