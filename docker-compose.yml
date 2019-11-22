@@ -1,7 +1,9 @@
 version: '3'
 services:
   14k-phpfpm:
-    build: ./
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
     ports:
     - "9000:9000"
     volumes:
