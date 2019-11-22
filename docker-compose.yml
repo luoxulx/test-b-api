@@ -1,41 +1,11 @@
 version: '3'
 services:
-  14k-mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: 111111
-    ports:
-    - "3306:3306"
-    volumes:
-    - ./mysql:/var/lib/mysql
-    container_name: 14k-mysql
-
-  14k-redis:
-    image: redis:alpine
-    ports:
-    - "6379:6379"
-    volumes:
-    - ./redis:/data
-    container_name: 14k-redis
-
   14k-phpfpm:
-    build: .
+    build: ./
     ports:
     - "9000:9000"
     volumes:
-    - /var/www/html:/var/www/html
-    links:
-    - 14k-mysql:mysql
-    - 14k-redis:redis
+    - ./:/var/www/html/14k-lnmpa-api
     container_name: 14k-phpfpm
 
-  14k-nginx:
-    image: nginx:alpine
-    ports:
-    - "80:80"
-    volumes:
-    - /var/www/html:/var/www/html
-    - ./conf/conf.d:/etc/nginx/conf.d
-    links:
-    - 14k-phpfpm:phpfpm
-    container_name: 14k-nginx
+

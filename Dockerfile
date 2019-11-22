@@ -1,5 +1,5 @@
 FROM php:7.2-fpm-alpine
-RUN apk update && apk add --no-cache libpng m4 autoconf make gcc g++ git \
+RUN apk update && apk add --cache libpng m4 autoconf make gcc g++ git \
     freetype-dev libjpeg-turbo-dev libpng-dev libmcrypt-dev linux-headers \
     nginx supervisor curl libcurl gmp-dev libxslt-dev gettext-dev bzip2-dev
 
@@ -12,7 +12,7 @@ RUN docker-php-ext-configure zip --with-zlib-dir=/usr \
 RUN docker-php-ext-install bcmath gd mysqli pdo_mysql calendar sysvmsg sysvsem \
     sysvshm mysql xsl shmop sockets bz2 exif gettext gmp mcrypt opcache pcntl zip wddx
 
-RUN apk add --no-cache --update libmemcached-libs zlib zlib-dev libmemcached-dev cyrus-sasl-dev
+RUN apk add --cache --update libmemcached-libs zlib zlib-dev libmemcached-dev cyrus-sasl-dev
 
 RUN pecl install swoole-1.9.0 && echo "extension=swoole.so" > /usr/local/etc/php/conf.d/swoole.ini
 
@@ -21,10 +21,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 EXPOSE 80
 
-ADD . /var/www/html/14k-lnmpa
-RUN chown nginx:nginx /var/www/html/14k-lnmpa
 WORKDIR /var/www/html/14k-lnmpa
 USER nginx
-RUN php composer.phar install --no-dev \
-    && php composer.phar dump-autoload -o && php composer.phar clearcache
+RUN php composer.phar install --no-dev && php composer.phar dump-autoload -o
 USER root
