@@ -23,9 +23,9 @@ class CreateArticlesTable extends Migration
             $table->string('title2', 225)->nullable()->comment('title-临时字段');
             $table->string('slug')->unique()->nullable(false)->index()->comment('url slug for SEO');
             $table->string('source', 255)->nullable()->comment('来源网址');
-            $table->mediumText('description')->nullable()->comment('描述');
-            $table->string('thumbnail', 225)->nullable()->comment('缩略图');
-            $table->longText('content')->nullable()->comment('主体内容json{raw,html}');
+            $table->mediumText('description')->default('')->comment('描述');
+            $table->string('thumbnail', 225)->default('')->comment('缩略图');
+            $table->longText('content')->default('')->comment('主体内容json{raw,html}');
             $table->timestamp('published_at')->nullable()->comment('发布时间');
 
             $table->timestamps();
