@@ -86,7 +86,7 @@
 
     <div class="text-dark bg-white">
         <div class="container py-3 position-relative">
-            <small class="blockquote-footer">© {{ date('Y') }} &nbsp;<a href="https://www.lnmpa.top" target="_blank">14k</a>,&nbsp;All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备17055140号-1</small>
+            <small class="blockquote-footer">© {{ date('Y') }} &nbsp;<a href="https://www.lnmpa.top" target="_blank">14k</a>,&nbsp;All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.miit.gov.cn/">浙ICP备17055140号-1</a></small>
             <button id="totop" title="Go to top" style="display: block;"><i class="fa fa-arrow-up text-white"></i></button>
         </div>
     </div>
