@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
+     * 两个 links 内容
      * seeds file
      * Seed the application's database.
      *
