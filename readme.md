@@ -1,4 +1,4 @@
-del
+deldel
 ##### 命令记录
 - 定时任务：crontab -e
 - ~~token 一天有效~~
